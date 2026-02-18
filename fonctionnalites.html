@@ -83,43 +83,48 @@
         <div class="kicker">Pourquoi KELASI ?</div>
         <h1>Une solution légère et complète pour votre école</h1>
         <p class="lead">
-          <strong>KELASI mobile</strong> est une solution légère et complète
-          dont l’objectif principal est de simplifier la gestion scolaire au
-          quotidien, sans procédures compliquées. Elle a été pensée pour
-          répondre aux vrais problèmes des écoles privées comme publiques, en
-          donnant aux administrateurs, enseignants et percepteurs les outils
-          essentiels pour travailler vite, correctement, et avec une visibilité
-          claire.
+          <strong>KELASI mobile</strong> est une solution conçue pour simplifier la gestion scolaire. Pensée pour répondre aux vrais problèmes du terrain, elle offre aux administrateurs les outils essentiels pour travailler vite et sans internet.
         </p>
 
-        <div class="grid two" style="margin-top: 40px; align-items: center">
+        <!-- Feature 1: Gestion des élèves (Texte gauche, Image droite) -->
+        <div class="grid two" style="margin-top: 64px; align-items: center">
           <div>
+            <div class="feature-icon-box">
+              <svg class="icon-svg" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            </div>
             <h2>Gestion complète des élèves</h2>
             <p>
-              L’application permet de gérer l’ensemble du parcours de l’élève :
-              suivi, présence et application en classe. Vous savez rapidement
-              qui est présent, qui ne l’est pas, et vous disposez d’un contrôle
-              simple et clair pour garder une école bien organisée.
+              L’ensemble du parcours de l’élève est centralisé : inscription, suivi des présences et passage automatique en classe supérieure.
             </p>
             <ul class="ul">
-              <li>Pointage de présence simple et rapide</li>
-              <li>Suivi de l'application en classe</li>
-              <li>Passage en classe suivante sans reprendre l’inscription</li>
+              <li>Pointage de présence simple et rapide depuis mobile.</li>
+              <li>Suivi de l'application et du comportement en classe.</li>
+              <li>Calcul automatique des moyennes et génération de bulletins.</li>
             </ul>
           </div>
-          <div class="card">
-            <img
-              src="assets/media/add-student-preview.png"
-              alt="Aperçu Ajout Élève"
-              style="
-                width: 100%;
-                border-radius: 8px;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-              "
-            />
-            <p class="meta" style="text-align: center; margin-top: 8px">
-              Vrai aperçu : Interface de gestion des élèves
+          <div class="card" style="padding: 10px;">
+            <img src="assets/media/add-student-preview.png" alt="Aperçu Ajout Élève" style="width: 100%; border-radius: 12px; box-shadow: var(--shadow);">
+          </div>
+        </div>
+
+        <!-- Feature 2: Paiements (Image gauche, Texte droite) -->
+        <div class="grid two" style="margin-top: 80px; align-items: center">
+          <div class="card" style="padding: 10px; order: 2;">
+            <img src="assets/media/receipt-preview.png" alt="Impression de reçu" style="width: 100%; border-radius: 12px; box-shadow: var(--shadow);">
+          </div>
+          <div style="order: 1;">
+            <div class="feature-icon-box">
+              <svg class="icon-svg" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+            </div>
+            <h2>Paiements & Perception</h2>
+            <p>
+              Sécurisez vos recettes grâce à la perception mobile. Les percepteurs encaissent, les administrateurs contrôlent en temps réel.
             </p>
+            <ul class="ul">
+              <li>Impression de reçus thermiques instantanés.</li>
+              <li>Contrôle strict de l'accès aux examens.</li>
+              <li>Ventilation des frais imposés (écoles publiques).</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -128,112 +133,42 @@
     <section class="section soft">
       <div class="container">
         <div class="grid three">
+          <!-- Card Enseignants -->
           <div class="card">
-            <div class="ico">💰</div>
-            <h3>Paiements & Examens</h3>
-            <p>
-              Suivez les frais scolaires et identifiez immédiatement les élèves
-              en ordre. Contrôlez l’accès aux examens pour éviter les erreurs au
-              moment le plus important.
-            </p>
-          </div>
-          <div class="card">
-            <div class="ico">📊</div>
-            <h3>Ventilation des frais</h3>
-            <p>
-              Répartition vers les frais imposés, idéal pour les écoles
-              publiques nécessitant une gestion structurée et traçable.
-            </p>
-          </div>
-          <div class="card">
-            <div class="ico">👩‍🏫</div>
+            <div class="feature-icon-box">
+              <svg class="icon-svg" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            </div>
             <h3>Enseignants & Salaires</h3>
-            <p>
-              Gestion des salaires, avances, retards et déductions en cas
-              d'absence non justifiée. Vue en temps réel du revenu.
-            </p>
+            <p class="meta">Gestion des salaires, avances, retards et déductions automatiques en cas d'absence.</p>
           </div>
-        </div>
-
-        <div class="grid two" style="margin-top: 40px; align-items: center">
+          <!-- Card Rapports -->
           <div class="card">
-            <img
-              src="assets/media/receipt-preview.png"
-              alt="Impression de reçu thermique"
-              style="
-                width: 100%;
-                border-radius: 8px;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-              "
-            />
-            <p class="meta" style="text-align: center; margin-top: 8px">
-              Impression de reçus sur imprimante thermique (compatible 90%)
-            </p>
+            <div class="feature-icon-box">
+              <svg class="icon-svg" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+            </div>
+            <h3>Rapports de Finance</h3>
+            <p class="meta">Vue claire du revenu par période (jour, semaine, mois) accessible partout.</p>
           </div>
-          <div>
-            <h2>Perception & Rapports</h2>
-            <p>
-              Les percepteurs perçoivent en temps réel, les administrateurs
-              voient tout instantanément sans se déplacer. Les rapports sont
-              personnalisables par période (jour, semaine, mois ou intervalle).
-            </p>
-            <ul class="ul">
-              <li>Perception terrain sans déplacements</li>
-              <li>Rapports personnalisables par période</li>
-              <li>Zéro perte d'information</li>
-            </ul>
+          <!-- Card Offline -->
+          <div class="card">
+            <div class="feature-icon-box">
+              <svg class="icon-svg" viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg>
+            </div>
+            <h3>100% Offline-first</h3>
+            <p class="meta">Travaillez sans internet. L'application synchronise les données dès qu'un réseau est trouvé.</p>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container grid three">
-        <div class="card">
-          <h3>Pédagogie numérique</h3>
-          <p>
-            Cotation directe depuis le téléphone, calcul automatique des
-            moyennes et génération de bulletins provisoires.
-          </p>
-        </div>
-        <div class="card">
-          <h3>Importation intelligente</h3>
-          <p>
-            Gagnez du temps en important vos listes d'élèves directement depuis
-            des fichiers DOCX ou Excel.
-          </p>
-        </div>
-        <div class="card">
-          <h3>Notifications SMS (Premium)</h3>
-          <p>
-            Alertez les parents par SMS en cas de paiement, d'absence ou
-            d'incident en classe.
-          </p>
         </div>
       </div>
     </section>
 
     <section class="section tint">
-      <div class="container">
-        <div
-          class="card"
-          style="text-align: center; max-width: 800px; margin: 0 auto"
-        >
-          <h2>Fonctionnement 100% Flexible</h2>
-          <p class="lead">
-            L'application <strong>KELASI</strong> fonctionne en ligne et hors
-            ligne afin de garantir le bon fonctionnement même dans les milieux
-            où la connexion internet est instable.
-          </p>
-          <div
-            class="btn-row"
-            style="justify-content: center; margin-top: 20px"
-          >
-            <a class="btn primary" href="contact.html#demo"
-              >Demander une démo</a
-            >
-            <a class="btn outline" href="tarifs.html">Voir les tarifs</a>
-          </div>
+      <div class="container" style="text-align: center;">
+        <div class="kicker">Prêt à moderniser ?</div>
+        <h2>Gagnez du temps dès aujourd'hui</h2>
+        <p class="lead" style="margin: 0 auto 32px;">Rejoignez les écoles qui font confiance à KELASI pour une gestion sans stress.</p>
+        <div class="btn-row" style="justify-content: center;">
+          <a class="btn primary" href="contact.html#demo">Demander une démo</a>
+          <a class="btn outline" href="tarifs.html">Voir les tarifs</a>
         </div>
       </div>
     </section>
@@ -243,146 +178,55 @@
         <div class="footergrid">
           <div>
             <div class="brandline">
-              <img
-                src="/assets/media/logo.jpg"
-                class="logo"
-                importance="high"
-                alt="Logo KELASI"
-              />
+              <img src="assets/media/logo.jpg" class="logo" importance="high" alt="Logo KELASI" style="border-radius:4px;">
               <div>
-                <div style="font-size: 18px">KELASI</div>
-                <div class="muted">
-                  Gestion scolaire mobile, même sans internet.
-                </div>
+                <div style="font-size:18px; font-weight:bold;">KELASI</div>
+                <div class="muted">Gestion scolaire mobile offline.</div>
               </div>
             </div>
-            <div style="margin-top: 12px" class="muted">
-              Perception en temps réel, rapports par période, reçus thermiques,
-              suivi enseignants.
+            <div style="margin-top:12px" class="muted">
+              Perception en temps réel, rapports par période et reçus thermiques.
             </div>
           </div>
 
           <div>
-            <div style="font-weight: 900">Pages</div>
+            <div style="font-weight:900">Ressources</div>
             <ul>
               <li><a href="fonctionnalites.html">Fonctionnalités</a></li>
-              <li><a href="demo.html">Démo & preuves</a></li>
-              <li><a href="tarifs.html">Tarifs</a></li>
-              <li><a href="ressources.html">Ressources</a></li>
+              <li><a href="demo.html">Vidéos démo</a></li>
+              <li><a href="tarifs.html">Tarifs & FAQ</a></li>
+              <li><a href="contact.html">Nous contacter</a></li>
             </ul>
           </div>
 
           <div>
-            <div style="font-weight: 900">Entreprise</div>
-            <ul>
-              <li><a href="apropos.html">À propos</a></li>
-              <li><a href="confidentialite.html">Confidentialité</a></li>
-              <li><a href="conditions.html">Conditions</a></li>
-              <li><a href="contact.html">Contact</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <div style="font-weight: 900">Contact</div>
-            <ul>
-              <li class="muted">
-                <a href="https://wa.me/243810239619" aria-label="WhatsApp">
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M21.6 4.2A11.9 11.9 0 0012 0C5.4 0 .2 4.9.2 11.3c0 2  .5 3.9 1.4 5.6L0 24l7.5-2.0c1.6.9 3.4 1.4 5.2 1.4 6.6 0 11.8-4.9 11.8-11.3 0-1.9-.5-3.7-1.5-5.3z"
-                      stroke="currentColor"
-                      stroke-width="0"
-                      fill="currentColor"
-                    />
-                  </svg>
+            <div style="font-weight:900">Support</div>
+            <ul style="list-style:none; padding:0;">
+              <li style="margin-bottom:8px;">
+                <a href="https://wa.me/243810239619" style="display:flex; align-items:center; gap:8px;">
+                  <svg class="icon-svg" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
                   WhatsApp : +243 810 239 619
                 </a>
               </li>
-              <li class="muted">
-                <a href="mailto:seven5software@gmail.com" aria-label="Email">
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M3 6.5v11A2.5 2.5 0 005.5 20h13a2.5 2.5 0 002.5-2.5v-11A2.5 2.5 0 0018.5 4h-13A2.5 2.5 0 003 6.5z"
-                      stroke="currentColor"
-                      stroke-width="1"
-                      fill="none"
-                    />
-                    <path
-                      d="M21 6.5l-9 6-9-6"
-                      stroke="currentColor"
-                      stroke-width="1"
-                      fill="none"
-                    />
-                  </svg>
+              <li style="margin-bottom:8px;">
+                <a href="mailto:seven5software@gmail.com" style="display:flex; align-items:center; gap:8px;">
+                  <svg class="icon-svg" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                   Email : seven5software@gmail.com
                 </a>
               </li>
-              <li class="muted">
-                <a
-                  href="https://www.facebook.com/profile.php?id=61579936882814"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Facebook"
-                >
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M22 12a10 10 0 10-11.6 9.9v-7H8.1v-3h2.3V9.3c0-2.3 1.4-3.6 3.5-3.6 1 0 2 .1 2 .1v2.3h-1.2c-1.2 0-1.6.8-1.6 1.6v1.9h2.7l-.4 3h-2.3v7A10 10 0 0022 12z"
-                      stroke="currentColor"
-                      stroke-width="0"
-                      fill="currentColor"
-                    />
-                  </svg>
-                  Facebook
-                </a>
-              </li>
-              <li class="muted">
-                <a
-                  href="https://www.youtube.com/@seven5-org"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="YouTube"
-                >
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M23 7s-.2-1.6-.8-2.3c-.8-.9-1.7-.9-2.1-1C17.6 3 12 3 12 3s-5.6 0-7.9.7c-.4.1-1.3.1-2.1 1C1.2 5.4 1 7 1 7S1 8.8 1 10.5v3C1 17.2 1.2 19 1.2 19s.2 1.6.8 2.3c.8.9 1.9.9 2.4 1.1C6.4 23 12 23 12 23s5.6 0 7.9-.6c.4-.1 1.3-.1 2.1-1 .6-.7.8-2.3.8-2.3s.2-1.8.2-3.5v-3C23 8.8 23 7 23 7z"
-                      stroke="currentColor"
-                      stroke-width="0"
-                      fill="currentColor"
-                    />
-                    <path d="M9.8 15.5l5.6-3.5-5.6-3.5v7z" fill="#fff" />
-                  </svg>
-                  YouTube
-                </a>
-              </li>
             </ul>
+          </div>
+
+          <div>
+            <div style="font-weight:900">Suivez-nous</div>
+            <div style="display:flex; gap:16px; margin-top:8px;">
+              <a href="https://www.facebook.com/profile.php?id=61579936882814" target="_blank" title="Facebook" style="color:white;">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+              </a>
+              <a href="https://www.youtube.com/@seven5-org" target="_blank" title="YouTube" style="color:white;">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2C1 8.11 1 12 1 12s0 3.89.42 5.58a2.78 2.78 0 0 0 1.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2C23 15.89 23 12 23 12s0-3.89-.42-5.58z"></path><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"></polygon></svg>
+              </a>
+            </div>
           </div>
         </div>
         <div class="bottom">
