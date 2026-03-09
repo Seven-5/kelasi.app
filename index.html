@@ -3,24 +3,24 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>KELASI — Gestion scolaire mobile, même sans internet</title>
+  <title>KELASI - Gestion scolaire mobile, même sans internet</title>
   <meta name="description" content="KELASI simplifie la gestion scolaire : perception en temps réel, présence, élèves en ordre, rapports, reçus thermiques. Fonctionne en ligne et hors ligne."/>
   <link rel="canonical" href="https://kelasi.app/"/>
   <meta name="robots" content="index,follow"/>
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="KELASI — Gestion scolaire mobile, même sans internet"/>
+  <meta property="og:title" content="KELASI - Gestion scolaire mobile, même sans internet"/>
   <meta property="og:description" content="Perception en temps réel, présence, rapports, reçus thermiques. Offline-first."/>
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://kelasi.app/"/>
   <meta property="og:image" content="https://kelasi.app/og-image.png"/>
 
-  <!-- Theme -->
   <meta name="theme-color" content="#6D28D9"/>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="assets/css/style.css"/>
 
-  <!-- JSON-LD (SoftwareApplication) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -34,14 +34,13 @@
   }
   </script>
 </head>
-<body>
+<body class="home-page">
 
-<!-- HEADER -->
 <header class="header">
   <div class="container">
     <nav class="nav" aria-label="Navigation principale">
       <a class="brand" href="index.html">
-       <img src="assets/media/logo.jpg" class="logo" alt="LOGO">
+        <img src="assets/media/logo.jpg" class="logo" alt="Logo KELASI"/>
         <span>KELASI</span>
       </a>
 
@@ -55,6 +54,8 @@
       </div>
 
       <div class="navcta">
+        <a class="btn outline" href="demo.html">Voir la vidéo</a>
+        <a class="btn primary" href="contact.html#demo">Demander une démo</a>
         <button class="burger" type="button" data-burger aria-label="Ouvrir le menu" aria-expanded="false">
           <svg class="menu-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -66,7 +67,7 @@
     <div class="mobilemenu" data-mobilemenu data-open="false" aria-label="Menu mobile">
       <a data-nav href="index.html">Accueil</a>
       <a data-nav href="fonctionnalites.html">Fonctionnalités</a>
-      <a data-nav href="cas-dusage.html">Cas d’usage</a>
+      <a data-nav href="cas-dusage.html">Cas d'usage</a>
       <a data-nav href="demo.html">Démo & preuves</a>
       <a data-nav href="tarifs.html">Tarifs</a>
       <a data-nav href="ressources.html">Ressources</a>
@@ -80,205 +81,387 @@
   </div>
 </header>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="container hero-wrap">
-    <div>
-      <div class="badge">Offline-first · Mobile-first · Temps réel</div>
-      <h1 style="margin-top:12px;">Gérez votre école depuis votre téléphone, même sans internet.</h1>
-      <p class="lead">
-        KELASI simplifie la gestion scolaire : perception, présence, élèves en ordre, rapports par période,
-        impression de reçus thermiques et suivi enseignants.
-      </p>
+<main>
+  <section class="hero home-hero">
+    <div class="container home-hero__grid">
+      <div class="home-hero__content">
+        <div class="badge home-badge">Android · Offline-first · Temps réel</div>
+        <h1>La gestion scolaire qui tient le terrain, même quand le réseau tombe.</h1>
+        <p class="lead home-lead">
+          KELASI aide les écoles à encaisser, contrôler les élèves en ordre, suivre les enseignants
+          et produire des rapports clairs depuis un simple téléphone.
+        </p>
 
-      <div class="btn-row" style="margin-top:16px;">
-        <a class="btn primary" href="contact.html#demo">Demander une démo</a>
-        <a class="btn outline" href="demo.html">Voir la vidéo</a>
-        <a class="btn ghost" href="fonctionnalites.html">Explorer les fonctionnalités</a>
+        <div class="home-actions">
+          <a class="btn primary" href="contact.html#demo">Demander une démo</a>
+          <a class="btn outline" href="demo.html">Voir la vidéo</a>
+          <a class="btn ghost" href="cas-dusage.html">Cas d'usage</a>
+        </div>
+
+        <div class="home-trust">
+          <span>Impression thermique</span>
+          <span>Contrôle instantané</span>
+          <span>Rapports par période</span>
+        </div>
+
+        <div class="hero-metrics">
+          <article class="hero-metric">
+            <strong>4 écoles</strong>
+            <span>utilisent déjà KELASI sur le terrain.</span>
+          </article>
+          <article class="hero-metric">
+            <strong>Mode offline</strong>
+            <span>pour continuer à percevoir sans connexion stable.</span>
+          </article>
+          <article class="hero-metric">
+            <strong>Mise en place rapide</strong>
+            <span>pour démarrer en quelques heures, pas en quelques semaines.</span>
+          </article>
+        </div>
       </div>
 
-      <div class="stats">
-        <div class="stat">
-          <div class="n">4</div>
-          <div class="t">écoles utilisent déjà KELASI</div>
+      <div class="home-hero__stage">
+        <div class="stage-panel">
+          <div class="stage-label">Vue opérationnelle</div>
+          <h2>Un poste mobile pour l'agent, une vision claire pour la direction.</h2>
+          <p>
+            La perception, le suivi des élèves et les preuves d'encaissement restent synchronisés
+            autour d'une seule interface simple.
+          </p>
+
+          <div class="stage-media">
+            <img
+              src="assets/media/dashboard_kelasi.png"
+              alt="Interface mobile KELASI sur un écran de téléphone"
+              loading="eager"
+              decoding="async"
+            />
+          </div>
+
+          <div class="stage-list">
+            <div class="stage-list__item">
+              <span class="stage-list__dot"></span>
+              <div>
+                <strong>Perception mobile</strong>
+                <span>Encaissez et imprimez un reçu sans retourner au bureau.</span>
+              </div>
+            </div>
+            <div class="stage-list__item">
+              <span class="stage-list__dot"></span>
+              <div>
+                <strong>Contrôle des élèves</strong>
+                <span>Vérifiez en quelques secondes qui est en ordre.</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="stat">
-          <div class="n">Offline</div>
-          <div class="t">fonctionne sans connexion stable</div>
-        </div>
-        <div class="stat">
-          <div class="n">Rapide</div>
-          <div class="t">mise en place en quelques heures</div>
-        </div>
+
+        <aside class="floating-note floating-note--top">
+          <span class="floating-note__title">Direction</span>
+          <strong>Les perceptions remontent au fil de la journée.</strong>
+        </aside>
+
+        <aside class="floating-note floating-note--bottom">
+          <span class="floating-note__title">Terrain</span>
+          <strong>L'agent continue même si internet devient instable.</strong>
+        </aside>
       </div>
     </div>
 
-    <div class="hero-card">
-      <div class="kicker">Aperçu</div>
-      
-      <div class="hero-media" aria-label="Aperçu de l'application">
-        <img src="assets/media/recu_instantanee.png" alt="Tableau de bord KELASI" style="width:100%; border-radius:8px; object-fit:cover; aspect-ratio:4/3;" loading="lazy"/>
-      </div>
-
-      <div style="margin-top:14px;">
-        <a class="btn primary full" href="cas-dusage.html">Voir les cas d’usage</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROOF -->
-<section class="section">
-  <div class="container">
-    <div class="grid two" style="align-items:end;">
-      <div>
-        <div class="kicker">Preuves</div>
-        <h2>Vidéos de démonstration sur le terrain</h2>
-      </div>
-      <div class="btn-row" style="justify-content:flex-end;">
-        <a class="btn outline" href="demo.html">Voir plus de vidéos</a>
-        <a class="btn primary" href="contact.html#demo">Planifier une démo</a>
+    <div class="container">
+      <div class="impact-strip">
+        <article class="impact-card">
+          <span class="impact-card__label">Perception</span>
+          <p>Chaque paiement est tracé et prêt à être imprimé.</p>
+        </article>
+        <article class="impact-card">
+          <span class="impact-card__label">Contrôle</span>
+          <p>Le personnel identifie vite les élèves en ordre avant les épreuves.</p>
+        </article>
+        <article class="impact-card">
+          <span class="impact-card__label">Pilotage</span>
+          <p>Les rapports par période donnent une lecture immédiate des encaissements.</p>
+        </article>
+        <article class="impact-card">
+          <span class="impact-card__label">Suivi</span>
+          <p>La direction garde une vue propre sur les opérations et les équipes.</p>
+        </article>
       </div>
     </div>
+  </section>
 
-      <div class="grid two" style="margin-top:24px;">
-      
-      <div class="card">
-        <div class="title">ITP MOSALA - Contrôle</div>
-        <div class="video-thumb-wrapper" role="button" tabindex="0" aria-label="Ouvrir la vidéo" data-video-src="assets/media/itp-mosala-control.mp4">
-          <img class="video-thumb" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="Aperçu : ITP MOSALA - Contrôle" />
-          <button class="video-play" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="36" height="36" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" stroke="white" stroke-opacity="0.9" stroke-width="1.5" fill="rgba(0,0,0,0.35)"/><path d="M10 8v8l6-4-6-4z" fill="white"/></svg>
-          </button>
-          <video class="school-video" preload="metadata" data-src="assets/media/itp-mosala-control.mp4" style="display:none;" aria-hidden="true"></video>
+  <section class="section home-section">
+    <div class="container">
+        <div class="section-heading">
+          <div class="kicker">Ce qui change vite</div>
+          <h2>Une interface pensée pour les opérations scolaires, pas pour faire joli.</h2>
+          <p class="lead">
+          La page d'accueil met en avant les cas d'usage concrets qui comptent pour une école :
+          percevoir vite, contrôler proprement et piloter sans ressaisie.
+          </p>
         </div>
-        <div class="meta">Vérification rapide des élèves en ordre.</div>
-      </div>
-      <div class="card">
-        <div class="title">C.S HEIWA - Impression</div>
-        <div class="video-thumb-wrapper" role="button" tabindex="0" aria-label="Ouvrir la vidéo" data-video-src="assets/media/cs-heiwa.mp4">
-          <img class="video-thumb" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="Aperçu : C.S HEIWA - Impression" />
-          <button class="video-play" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="36" height="36" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" stroke="white" stroke-opacity="0.9" stroke-width="1.5" fill="rgba(0,0,0,0.35)"/><path d="M10 8v8l6-4-6-4z" fill="white"/></svg>
-          </button>
-          <video class="school-video" preload="metadata" data-src="assets/media/cs-heiwa.mp4" style="display:none;" aria-hidden="true"></video>
-        </div>
-        <div class="meta">Fluidité du travail avec imprimante thermique.</div>
-      </div>
-        <div class="card">
-        <div class="title">ITP MOSALA - Contrôle des élèves</div>
-        <div class="video-thumb-wrapper" role="button" tabindex="0" aria-label="Ouvrir la vidéo ITP MOSALA - Contrôle" data-video-src="assets/media/itp-mosala-control.mp4">
-          <img class="video-thumb" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="Aperçu : ITP MOSALA - Contrôle" />
-          <button class="video-play" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="36" height="36" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" stroke="white" stroke-opacity="0.9" stroke-width="1.5" fill="rgba(0,0,0,0.35)"/><path d="M10 8v8l6-4-6-4z" fill="white"/></svg>
-          </button>
-          <video class="school-video" preload="metadata" data-src="assets/media/itp-mosala-control.mp4" style="display:none;" aria-hidden="true"></video>
-        </div>
-        <div class="meta">Vérification instantanée de l'ordre de paiement lors des examens.</div>
-      </div>
-      <div class="card">
-        <div class="title">C.S PHILIPPE RIGAUX</div>
-        <div class="video-thumb-wrapper" role="button" tabindex="0" aria-label="Ouvrir la vidéo" data-video-src="assets/media/cs-philippe-rigaux.mp4">
-          <img class="video-thumb" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="Aperçu : C.S PHILIPPE RIGAUX" />
-          <button class="video-play" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="36" height="36" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" stroke="white" stroke-opacity="0.9" stroke-width="1.5" fill="rgba(0,0,0,0.35)"/><path d="M10 8v8l6-4-6-4z" fill="white"/></svg>
-          </button>
-          <video class="school-video" preload="metadata" data-src="assets/media/cs-philippe-rigaux.mp4" style="display:none;" aria-hidden="true"></video>
-        </div>
-        <div class="meta">Utilisation quotidienne en milieu scolaire.</div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- BENEFITS -->
-<section class="section soft">
-  <div class="container">
-    <div class="kicker">Bénéfices</div>
-    <h2>Tout l’essentiel, sans complexité.</h2>
-    <p class="lead">KELASI couvre les besoins réels des écoles privées et publiques, avec une expérience simple et rapide.</p>
-
-    <div class="grid three" style="margin-top:18px;">
-      <div class="card">
-        <div class="feature">
-          <div class="ico">
-            <svg class="icon-svg" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
-              <path fill="currentColor" d="M2.05 6.86a15 15 0 0119.9 0 1 1 0 11-1.41 1.41 13 13 0 00-17.08 0A1 1 0 012.05 6.86z"></path>
-              <path fill="currentColor" d="M4.93 9.76a10 10 0 0114.14 0 1 1 0 11-1.41 1.41 8 8 0 00-11.32 0A1 1 0 014.93 9.76z"></path>
-              <path fill="currentColor" d="M7.76 12.59a5 5 0 016.48 0 1 1 0 11-1.48 1.34 3 3 0 00-3.52 0 1 1 0 11-1.48-1.34z"></path>
-              <circle fill="currentColor" cx="12" cy="18" r="1"></circle>
+      <div class="outcome-grid">
+        <article class="outcome-card">
+          <div class="outcome-card__icon">
+            <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 7h16"></path>
+              <path d="M7 4h10v16H7z"></path>
+              <path d="M9.5 11.5h5"></path>
+              <path d="M9.5 15h5"></path>
             </svg>
           </div>
-          <div>
-            <div class="title">Offline-first</div>
-            <div class="desc">Continuez même sans internet stable.</div>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="feature">
-          <div class="ico">
-            <svg class="icon-svg" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
-              <path fill="currentColor" d="M13 2L3 14h7l-1 8L21 10h-7z"></path>
+          <h3>Encaissement propre</h3>
+          <p>Un flux simple pour percevoir, confirmer le montant et remettre un reçu immédiat.</p>
+        </article>
+
+        <article class="outcome-card">
+          <div class="outcome-card__icon">
+            <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 12h16"></path>
+              <path d="M12 4v16"></path>
+              <circle cx="12" cy="12" r="9"></circle>
             </svg>
           </div>
-          <div>
-            <div class="title">Temps réel</div>
-            <div class="desc">Encaissez sur le terrain, suivez en admin.</div>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="feature">
-          <div class="ico">
-            <svg class="icon-svg" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
-              <path fill="currentColor" d="M6 9V3h12v6"></path>
-              <rect fill="currentColor" x="6" y="13" width="12" height="7" rx="2"></rect>
-              <path fill="currentColor" d="M6 18h12v-5H6v5z" opacity="0.9"></path>
+          <h3>Contrôle instantané</h3>
+          <p>Le personnel vérifie les élèves en ordre sur place, sans liste papier ni retard.</p>
+        </article>
+
+        <article class="outcome-card">
+          <div class="outcome-card__icon">
+            <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 18V8"></path>
+              <path d="M12 18V4"></path>
+              <path d="M19 18v-6"></path>
+              <path d="M3 18h18"></path>
             </svg>
           </div>
-          <div>
-            <div class="title">Reçus thermiques</div>
-            <div class="desc">Impression rapide et processus clair.</div>
+          <h3>Rapports exploitables</h3>
+          <p>Les chiffres remontent par période pour aider la direction à décider rapidement.</p>
+        </article>
+
+        <article class="outcome-card">
+          <div class="outcome-card__icon">
+            <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M8 6a4 4 0 1 0 0 8"></path>
+              <path d="M16 6a4 4 0 1 1 0 8"></path>
+              <path d="M4 20c1.5-3 4-4.5 8-4.5S18.5 17 20 20"></path>
+            </svg>
           </div>
+          <h3>Suivi de l'équipe</h3>
+          <p>Présence et organisation quotidienne restent visibles sans ajouter de complexité.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section soft workflow-section">
+    <div class="container workflow-grid">
+      <div class="workflow-copy">
+        <div class="kicker">Parcours simple</div>
+        <h2>Encaisser, contrôler, piloter. Sans ressaisie et sans aller-retour inutiles.</h2>
+        <p class="lead">
+          La page met mieux en avant le flux réel d'utilisation de KELASI pour qu'un visiteur
+          comprenne rapidement ce que l'application change dans une journée d'école.
+        </p>
+
+        <div class="workflow-steps">
+          <article class="workflow-step">
+            <span class="workflow-step__index">01</span>
+            <div>
+              <h3>Perception sur mobile</h3>
+              <p>L'agent saisit le paiement, valide et imprime un reçu au moment opportun.</p>
+            </div>
+          </article>
+
+          <article class="workflow-step">
+            <span class="workflow-step__index">02</span>
+            <div>
+              <h3>Contrôle en temps réel</h3>
+              <p>Le personnel voit tout de suite si l'élève est en ordre pour entrer ou composer.</p>
+            </div>
+          </article>
+
+          <article class="workflow-step">
+            <span class="workflow-step__index">03</span>
+            <div>
+              <h3>Lecture claire pour la direction</h3>
+              <p>Les responsables suivent la perception et les rapports sans attendre la fin de journée.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="workflow-actions">
+          <a class="btn primary" href="fonctionnalites.html">Voir les fonctionnalités</a>
+          <a class="btn outline" href="tarifs.html">Consulter les tarifs</a>
+        </div>
+      </div>
+
+      <div class="workflow-panel">
+        <div class="workflow-panel__header">
+          <span class="workflow-panel__eyebrow">Focus terrain</span>
+          <strong>Percevoir, imprimer et contrôler depuis le même écran.</strong>
+        </div>
+
+        <div class="workflow-panel__media">
+          <img
+            src="assets/media/perception_en_temps_reel.png"
+            alt="Écran KELASI montrant la perception en temps réel"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
+        <div class="workflow-panel__footer">
+          <span>Perception en temps réel</span>
+          <span>Reçus thermiques</span>
+          <span>Rapports clairs</span>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="btn-row" style="margin-top:18px;">
-      <a class="btn primary" href="fonctionnalites.html">Les fonctionnalités</a>
-      <a class="btn outline" href="tarifs.html">Voir les tarifs</a>
-    </div>
-  </div>
-</section>
-
-<!-- DEMO -->
-<section class="section tint">
-  <div class="container">
-    <div class="grid two" style="align-items:center;">
-      <div>
-        <div class="kicker">Démo immersive</div>
-        <h2>Découvrez KELASI en action</h2>
-        <p class="lead">Découvrez comment KELASI transforme la gestion scolaire à travers cette présentation complète.</p>
-      </div>
-      <div class="card" style="padding:0; overflow:hidden;">
-        <div class="video-thumb-wrapper" role="button" tabindex="0" aria-label="Ouvrir la vidéo" data-video-src="assets/media/itp-mosala-perception.mp4">
-          <img class="video-thumb" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="Aperçu démo KELASI" />
-          <button class="video-play" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="48" height="48" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" stroke="white" stroke-opacity="0.95" stroke-width="1.5" fill="rgba(0,0,0,0.35)"/><path d="M10 8v8l6-4-6-4z" fill="white"/></svg>
-          </button>
-          <video class="school-video" style="display:none;" preload="metadata" data-src="assets/media/itp-mosala-perception.mp4" aria-hidden="true"></video>
+  <section class="section proof-section">
+    <div class="container">
+      <div class="section-heading section-heading--split">
+        <div>
+          <div class="kicker">Preuves terrain</div>
+          <h2>Des usages réels, visibles en quelques secondes.</h2>
         </div>
-        <div style="padding:16px;">
-          <a class="btn primary full" href="contact.html#demo">Planifier une démo personnalisée</a>
+        <div class="section-heading__actions">
+          <p class="lead">La home s'appuie davantage sur des preuves concrètes au lieu d'un simple discours produit.</p>
+          <a class="btn outline" href="demo.html">Voir toutes les vidéos</a>
         </div>
       </div>
-    </div>
-  </div>
-</section>
 
-<!-- FOOTER -->
-<!-- Video modal -->
+      <div class="proof-grid">
+        <article class="proof-card">
+          <div class="proof-card__header">
+            <span class="proof-card__tag">Contrôle</span>
+            <strong>ITP MOSALA</strong>
+          </div>
+          <div class="video-thumb-wrapper" role="button" tabindex="0" aria-label="Ouvrir la vidéo de contrôle ITP MOSALA" data-video-src="assets/media/itp-mosala-control.mp4">
+            <img class="video-thumb" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="Aperçu de la vidéo ITP MOSALA contrôle"/>
+            <button class="video-play" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="40" height="40" fill="none" aria-hidden="true">
+                <circle cx="12" cy="12" r="11" stroke="white" stroke-opacity="0.9" stroke-width="1.5" fill="rgba(0,0,0,0.35)"/>
+                <path d="M10 8v8l6-4-6-4z" fill="white"/>
+              </svg>
+            </button>
+            <video class="school-video" preload="metadata" data-src="assets/media/itp-mosala-control.mp4" style="display:none;" aria-hidden="true"></video>
+          </div>
+          <p>Vérification rapide des élèves en ordre pendant les opérations de terrain.</p>
+        </article>
+
+        <article class="proof-card">
+          <div class="proof-card__header">
+            <span class="proof-card__tag">Impression</span>
+            <strong>C.S HEIWA</strong>
+          </div>
+          <div class="video-thumb-wrapper" role="button" tabindex="0" aria-label="Ouvrir la vidéo impression C.S HEIWA" data-video-src="assets/media/cs-heiwa.mp4">
+            <img class="video-thumb" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="Aperçu de la vidéo C.S HEIWA impression"/>
+            <button class="video-play" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="40" height="40" fill="none" aria-hidden="true">
+                <circle cx="12" cy="12" r="11" stroke="white" stroke-opacity="0.9" stroke-width="1.5" fill="rgba(0,0,0,0.35)"/>
+                <path d="M10 8v8l6-4-6-4z" fill="white"/>
+              </svg>
+            </button>
+            <video class="school-video" preload="metadata" data-src="assets/media/cs-heiwa.mp4" style="display:none;" aria-hidden="true"></video>
+          </div>
+          <p>Le reçu sort immédiatement, avec un flux plus propre pour l'administration.</p>
+        </article>
+
+        <article class="proof-card proof-card--image">
+          <div class="proof-card__header">
+            <span class="proof-card__tag">Aperçu</span>
+            <strong>Reçu instantané</strong>
+          </div>
+          <div class="proof-image">
+            <img
+              src="assets/media/recu_instantanee.png"
+              alt="Aperçu de reçu imprimé dans KELASI"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <p>La preuve de paiement reste claire pour l'école comme pour les parents.</p>
+        </article>
+
+        <article class="proof-card">
+          <div class="proof-card__header">
+            <span class="proof-card__tag">Usage quotidien</span>
+            <strong>C.S PHILIPPE RIGAUX</strong>
+          </div>
+          <div class="video-thumb-wrapper" role="button" tabindex="0" aria-label="Ouvrir la vidéo C.S PHILIPPE RIGAUX" data-video-src="assets/media/cs-philippe-rigaux.mp4">
+            <img class="video-thumb" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="Aperçu de la vidéo C.S PHILIPPE RIGAUX"/>
+            <button class="video-play" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="40" height="40" fill="none" aria-hidden="true">
+                <circle cx="12" cy="12" r="11" stroke="white" stroke-opacity="0.9" stroke-width="1.5" fill="rgba(0,0,0,0.35)"/>
+                <path d="M10 8v8l6-4-6-4z" fill="white"/>
+              </svg>
+            </button>
+            <video class="school-video" preload="metadata" data-src="assets/media/cs-philippe-rigaux.mp4" style="display:none;" aria-hidden="true"></video>
+          </div>
+          <p>Une utilisation simple au quotidien, sans interface lourde ni apprentissage long.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section signal-section tint">
+    <div class="container signal-grid">
+      <div class="signal-copy">
+        <div class="kicker">Points forts</div>
+        <h2>Ce que la nouvelle home fait mieux comprendre au premier regard.</h2>
+        <p class="lead">
+          Le visiteur voit maintenant le produit, ses usages concrets et les preuves terrain dans le
+          bon ordre. La navigation reste légère sur mobile comme sur desktop.
+        </p>
+      </div>
+
+      <div class="signal-stack">
+        <article class="signal-card">
+          <span class="signal-card__eyebrow">Message principal</span>
+          <h3>Une promesse plus nette</h3>
+          <p>Le hero expose directement l'avantage central : gérer l'école depuis le mobile, même sans internet.</p>
+        </article>
+
+        <article class="signal-card">
+          <span class="signal-card__eyebrow">Responsive</span>
+          <h3>Des blocs qui se replient proprement</h3>
+          <p>Les grilles deviennent lisibles sur petit écran, avec des CTA et des cartes plus stables.</p>
+        </article>
+
+        <article class="signal-card">
+          <span class="signal-card__eyebrow">Crédibilité</span>
+          <h3>Plus de preuves visibles</h3>
+          <p>Les vidéos et captures d'écran sont mieux intégrées pour montrer le produit avant de vendre le produit.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section home-cta">
+    <div class="container">
+      <div class="cta-banner">
+        <div>
+          <div class="kicker">Voir KELASI en action</div>
+          <h2>Demandez une démo adaptée au fonctionnement de votre école.</h2>
+          <p class="lead">
+            Nous vous montrons un cas concret de perception, de contrôle des élèves
+            et d'impression des reçus selon votre organisation.
+          </p>
+        </div>
+
+        <div class="cta-banner__actions">
+          <a class="btn primary" href="contact.html#demo">Planifier une démo</a>
+          <a class="btn outline" href="https://wa.me/243810239619">Parler sur WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
 <div id="video-modal" class="video-modal" aria-hidden="true">
   <div class="vm-overlay" data-vm-close></div>
   <div class="vm-content" role="dialog" aria-modal="true" aria-label="Lecteur vidéo">
@@ -287,14 +470,12 @@
   </div>
 </div>
 
-
-
 <footer class="footer">
   <div class="container">
     <div class="footergrid">
       <div>
         <div class="brandline">
-          <img src="assets/media/logo.jpg" class="logo" importance="high" alt="Logo KELASI" style="border-radius:4px;">
+          <img src="assets/media/logo.jpg" class="logo" importance="high" alt="Logo KELASI" style="border-radius:4px;"/>
           <div>
             <div style="font-size:18px; font-weight:bold;">KELASI</div>
             <div class="muted">Gestion scolaire mobile offline.</div>
@@ -320,13 +501,13 @@
         <ul style="list-style:none; padding:0;">
           <li style="margin-bottom:8px;">
             <a href="https://wa.me/243810239619" style="display:flex; align-items:center; gap:8px;">
-              <img src="https://cdn.simpleicons.org/whatsapp/25D366" width="18" height="18" alt="" aria-hidden="true">
+              <img src="https://cdn.simpleicons.org/whatsapp/25D366" width="18" height="18" alt="" aria-hidden="true"/>
               +243 810 239 619
             </a>
           </li>
           <li style="margin-bottom:8px;">
             <a href="mailto:seven5software@gmail.com" style="display:flex; align-items:center; gap:8px;">
-              <img src="https://cdn.simpleicons.org/gmail/EA4335" width="18" height="18" alt="" aria-hidden="true">
+              <img src="https://cdn.simpleicons.org/gmail/EA4335" width="18" height="18" alt="" aria-hidden="true"/>
               seven5software@gmail.com
             </a>
           </li>
@@ -335,15 +516,15 @@
 
       <div>
         <div style="font-weight:900">Suivez-nous</div>
-        <div style="display:flex; gap:16px; margin-top:8px;">
-          <a href="https://www.facebook.com/profile.php?id=61579936882814" target="_blank" title="Facebook" rel="noopener noreferrer" style="color:white; display:flex; align-items:center; gap:8px;">
-            <img src="https://cdn.simpleicons.org/facebook/1877F2" width="20" height="20" alt="Facebook">
+        <div class="footer-socials">
+          <a class="footer-social-link" href="https://www.facebook.com/profile.php?id=61579936882814" target="_blank" title="Facebook" rel="noopener noreferrer">
+            <img src="https://cdn.simpleicons.org/facebook/1877F2" width="20" height="20" alt="Facebook"/>
           </a>
-          <a href="https://www.youtube.com/@seven5-org" target="_blank" title="YouTube" rel="noopener noreferrer" style="color:white; display:flex; align-items:center; gap:8px;">
-            <img src="https://cdn.simpleicons.org/youtube/FF0000" width="20" height="20" alt="YouTube">
+          <a class="footer-social-link" href="https://www.youtube.com/@seven5-org" target="_blank" title="YouTube" rel="noopener noreferrer">
+            <img src="https://cdn.simpleicons.org/youtube/FF0000" width="20" height="20" alt="YouTube"/>
           </a>
-          <a href="https://play.google.com/store/apps/details?id=com.seven5.kelasi" target="_blank" title="Google Play" rel="noopener noreferrer" style="color:white; display:flex; align-items:center; gap:8px;">
-            <img src="https://cdn.simpleicons.org/googleplay/34A853" width="20" height="20" alt="Google Play">
+          <a class="footer-social-link" href="https://play.google.com/store/apps/details?id=com.seven5.kelasi" target="_blank" title="Google Play" rel="noopener noreferrer">
+            <img src="https://cdn.simpleicons.org/googleplay/34A853" width="20" height="20" alt="Google Play"/>
           </a>
         </div>
       </div>
