@@ -337,6 +337,28 @@ h3 {
   margin-bottom: 16px;
 }
 
+.feature-card-inline {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  column-gap: 14px;
+  row-gap: 10px;
+}
+
+.feature-card-inline .feature-icon-box {
+  margin-bottom: 0;
+}
+
+.feature-card-inline h3 {
+  margin: 0;
+  align-self: center;
+}
+
+.feature-card-inline .meta {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
 @media (max-width: 980px) {
   .navlinks {
     display: none;
