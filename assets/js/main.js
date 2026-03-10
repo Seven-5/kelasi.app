@@ -26,16 +26,14 @@
       e.preventDefault();
       const name = form.querySelector("[name=name]").value.trim();
       const school = form.querySelector("[name=school]").value.trim();
-      const phone = form.querySelector("[name=phone]").value.trim();
       const msg = form.querySelector("[name=message]").value.trim();
 
-      // Remplace par ton numéro WhatsApp au format international, sans +
-      const whatsappNumber = "000000000000";
+      const whatsappNumber = "243810239619";
 
       const text =
         `Bonjour, je suis ${name || "(Nom)"}.\n` +
         `École : ${school || "(École)"}\n` +
-        `Téléphone : ${phone || "(Téléphone)"}\n\n` +
+        `\n` +
         `${msg || "(Message)"}\n\n` +
         `Je souhaite une démo KELASI.`;
 
