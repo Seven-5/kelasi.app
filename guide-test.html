@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>KELASI - Procédure de test</title>
+  <meta
+    name="description"
+    content="Procédure officielle de test KELASI : choix de la langue, scan du QR code de l'école, récupération des informations et connexion avec identifiants de démonstration."
+  />
+  <link rel="canonical" href="https://kelasi.app/guide-test.html"/>
+  <meta name="robots" content="index,follow"/>
+  <meta name="theme-color" content="#6D28D9"/>
+  <meta property="og:title" content="KELASI - Procédure de test"/>
+  <meta
+    property="og:description"
+    content="Guide visuel officiel pour tester l'accès à l'application KELASI avec QR code d'école et identifiants de démonstration."
+  />
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://kelasi.app/guide-test.html"/>
+  <meta property="og:image" content="https://kelasi.app/assets/media/demo-preview.jpg"/>
+  <meta property="og:locale" content="fr_FR"/>
+  <link rel="icon" type="image/png" href="assets/media/og-image.png"/>
+  <link rel="apple-touch-icon" href="assets/media/og-image.png"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "KELASI - Procédure de test",
+    "description": "Procédure officielle permettant de tester l'accès à l'application KELASI avec un QR code d'école puis une connexion utilisateur.",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Choix de la langue",
+        "text": "Ouvrez l'application puis choisissez la langue souhaitée sur l'écran d'accueil."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Choix de l'action",
+        "text": "Choisissez l'option permettant de scanner le code QR de l'école."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Scan du code QR",
+        "text": "Scannez le code QR fourni pour charger les informations de l'école de démonstration."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 4,
+        "name": "Chargement des informations",
+        "text": "Après le scan, l'application récupère les informations de l'école via Internet."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 5,
+        "name": "Connexion utilisateur",
+        "text": "Une fois les informations récupérées, saisissez le matricule et le mot de passe de test."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 6,
+        "name": "Accès à l'application",
+        "text": "Cliquez sur Se connecter pour accéder à l'application."
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="test-guide-page">
+<header class="header">
+  <div class="container">
+    <nav class="nav" aria-label="Navigation principale">
+      <a class="brand" href="index.html">
+        <img src="assets/media/og-image.png" class="logo" alt="Logo KELASI"/>
+        <span>KELASI</span>
+      </a>
+
+      <div class="navlinks" role="navigation">
+        <a data-nav href="index.html">Accueil</a>
+        <a data-nav href="fonctionnalites.html">Fonctionnalités</a>
+        <a data-nav href="demo.html">Démo & preuves</a>
+        <a data-nav href="tarifs.html">Tarifs</a>
+        <a data-nav href="ressources.html">Ressources</a>
+        <a data-nav href="contact.html">Contact</a>
+      </div>
+
+      <div class="navcta">
+        <a class="btn outline" href="demo.html">Voir les démos</a>
+        <a class="btn primary" href="#procedure-test">Voir la procédure</a>
+        <button class="burger" type="button" data-burger aria-label="Ouvrir le menu" aria-expanded="false">
+          <svg class="menu-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <div class="mobilemenu" data-mobilemenu data-open="false" aria-label="Menu mobile">
+      <a data-nav href="index.html">Accueil</a>
+      <a data-nav href="fonctionnalites.html">Fonctionnalités</a>
+      <a data-nav href="cas-dusage.html">Cas d'usage</a>
+      <a data-nav href="demo.html">Démo & preuves</a>
+      <a data-nav href="tarifs.html">Tarifs</a>
+      <a data-nav href="ressources.html">Ressources</a>
+      <a data-nav href="apropos.html">À propos</a>
+      <a data-nav href="contact.html">Contact</a>
+      <div class="cta">
+        <a class="btn primary full" href="#procedure-test">Voir la procédure</a>
+        <a class="btn outline full" href="index.html">Retour à l'accueil</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="section guide-hero">
+    <div class="container guide-hero__grid">
+      <div class="guide-hero__content">
+        <div class="badge">Google Play · Guide officiel</div>
+        <h1>KELASI - Procédure de test</h1>
+        <p class="lead">
+          Cette page explique la procédure officielle permettant de tester l'accès à l'application KELASI.
+          Elle présente le vrai parcours d'entrée, sans modifier le fonctionnement réel de l'application mobile.
+        </p>
+
+        <div class="guide-hero__actions">
+          <a class="btn primary" href="#procedure-test">Voir les étapes détaillées</a>
+          <a class="btn outline" href="demo.html">Retour aux démonstrations</a>
+        </div>
+      </div>
+
+      <aside class="guide-overview" aria-label="Résumé du parcours de test">
+        <div class="guide-overview__header">
+          <span class="guide-overview__eyebrow">Parcours réel</span>
+          <strong>QR code d'école puis connexion utilisateur</strong>
+        </div>
+
+        <div class="guide-overview__list">
+          <div class="guide-overview__item">
+            <span class="guide-overview__index">01</span>
+            <div>
+              <strong>Choisir la langue</strong>
+              <span>Le test démarre sur l'écran d'accueil de l'application.</span>
+            </div>
+          </div>
+
+          <div class="guide-overview__item">
+            <span class="guide-overview__index">02</span>
+            <div>
+              <strong>Scanner le QR code</strong>
+              <span>Le QR code de démonstration permet de récupérer l'école à tester.</span>
+            </div>
+          </div>
+
+          <div class="guide-overview__item">
+            <span class="guide-overview__index">03</span>
+            <div>
+              <strong>S'identifier</strong>
+              <span>La connexion se fait ensuite avec un matricule et un mot de passe de test.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-overview__footer">
+          <span>Connexion Internet requise</span>
+          <span>Identifiants de démonstration</span>
+          <span>Accès mobile sécurisé</span>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-heading">
+        <div class="kicker">Présentation rapide</div>
+        <h2>Une procédure simple, pensée pour un test officiel clair et sans ambiguïté.</h2>
+        <p class="lead">
+          KELASI utilise d'abord un QR code d'école pour identifier l'établissement à charger,
+          puis une connexion utilisateur classique avec matricule et mot de passe.
+        </p>
+      </div>
+
+      <div class="guide-summary-grid">
+        <article class="guide-summary-card">
+          <span class="guide-summary-card__eyebrow">Étape clé</span>
+          <h3>Connexion à l'école</h3>
+          <p>
+            Le test commence par le scan du QR code fourni. Ce QR code permet à l'application
+            de charger les informations de l'école de démonstration avant toute connexion utilisateur.
+          </p>
+        </article>
+
+        <article class="guide-summary-card">
+          <span class="guide-summary-card__eyebrow">Étape clé</span>
+          <h3>Connexion utilisateur</h3>
+          <p>
+            Une fois l'école chargée, l'utilisateur saisit son matricule et son mot de passe
+            sur l'écran de connexion pour accéder à l'application.
+          </p>
+        </article>
+
+        <article class="guide-summary-card">
+          <span class="guide-summary-card__eyebrow">Pré-requis</span>
+          <h3>Internet au moment du scan</h3>
+          <p>
+            Une connexion Internet est nécessaire pour récupérer les informations de l'école après le scan,
+            puis l'accès se poursuit normalement dans l'application.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section soft" id="procedure-test">
+    <div class="container">
+      <div class="section-heading">
+        <div class="kicker">Procédure détaillée</div>
+        <h2>Les étapes officielles pour tester l'accès à KELASI.</h2>
+        <p class="lead">
+          Suivez ces étapes dans l'ordre. Chaque carte reprend l'écran ou le visuel correspondant
+          afin de rendre la procédure simple à reproduire sur un appareil réel.
+        </p>
+      </div>
+
+      <div class="test-steps">
+        <article class="test-step">
+          <div class="test-step__content">
+            <span class="test-step__label">Étape 1</span>
+            <h3>Choix de la langue</h3>
+            <p>
+              Ouvrez l'application puis choisissez la langue souhaitée sur l'écran d'accueil.
+            </p>
+          </div>
+
+          <div class="test-step__media test-step__media--phone">
+            <img
+              src="assets/media/choose_language.png"
+              alt="Écran KELASI pour choisir la langue au démarrage"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </article>
+
+        <article class="test-step test-step--reverse">
+          <div class="test-step__content">
+            <span class="test-step__label">Étape 2</span>
+            <h3>Choix de l'action</h3>
+            <p>
+              Sur l'écran suivant, choisissez l'option permettant de scanner le code QR de l'école.
+            </p>
+          </div>
+
+          <div class="test-step__media test-step__media--phone">
+            <img
+              src="assets/media/scanne_to_connecte_or_create_school.png"
+              alt="Écran KELASI avec le choix pour rejoindre une école ou en créer une"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </article>
+
+        <article class="test-step">
+          <div class="test-step__content">
+            <span class="test-step__label">Étape 3</span>
+            <h3>Scan du code QR</h3>
+            <p>
+              Scannez le code QR fourni pour charger les informations de l'école de démonstration.
+            </p>
+          </div>
+
+          <div class="test-step__media qr-showcase">
+            <div class="qr-frame">
+              <img
+                src="assets/media/code_qr_test_kelasi.png"
+                alt="Code QR de démonstration à scanner pour tester KELASI"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <p class="qr-caption">Code QR officiel de démonstration KELASI</p>
+          </div>
+        </article>
+
+        <article class="test-step test-step--reverse">
+          <div class="test-step__content">
+            <span class="test-step__label">Étape 4</span>
+            <h3>Chargement des informations</h3>
+            <p>
+              Après le scan, l'application récupère les informations de l'école via Internet.
+            </p>
+          </div>
+
+          <div class="test-step__media">
+            <div class="sync-visual" aria-label="Chargement des informations de l'école">
+              <div class="sync-card">
+                <div class="sync-card__line">
+                  <strong>École de démonstration</strong>
+                  <span>Connexion sécurisée</span>
+                </div>
+                <div class="sync-progress" aria-hidden="true">
+                  <span></span>
+                </div>
+              </div>
+
+              <div class="sync-list">
+                <div class="sync-list__item">
+                  <span class="sync-list__dot"></span>
+                  <div>
+                    <strong>Code QR validé</strong>
+                    <span>Le code scanné correspond bien à l'école de test publiée.</span>
+                  </div>
+                </div>
+
+                <div class="sync-list__item">
+                  <span class="sync-list__dot"></span>
+                  <div>
+                    <strong>Données récupérées</strong>
+                    <span>Les informations nécessaires sont chargées depuis Internet avant la connexion.</span>
+                  </div>
+                </div>
+
+                <div class="sync-list__item">
+                  <span class="sync-list__dot"></span>
+                  <div>
+                    <strong>Écran de connexion prêt</strong>
+                    <span>L'application affiche ensuite le formulaire utilisateur pour poursuivre le test.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="test-step">
+          <div class="test-step__content">
+            <span class="test-step__label">Étape 5</span>
+            <h3>Connexion utilisateur</h3>
+            <p>
+              Une fois les informations récupérées, la page de connexion s'affiche.
+              Saisissez les identifiants de test.
+            </p>
+
+            <div class="credential-card" aria-label="Identifiants de démonstration">
+              <span class="credential-card__eyebrow">Identifiants de test</span>
+              <div class="credential-card__grid">
+                <div class="credential-card__item">
+                  <span>Matricule</span>
+                  <strong>131691</strong>
+                </div>
+                <div class="credential-card__item">
+                  <span>Mot de passe</span>
+                  <strong>1234</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="test-step__media test-step__media--phone">
+            <img
+              src="assets/media/page_login.png"
+              alt="Écran de connexion utilisateur KELASI après chargement de l'école"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </article>
+
+        <article class="test-step test-step--reverse">
+          <div class="test-step__content">
+            <span class="test-step__label">Étape 6</span>
+            <h3>Accès à l'application</h3>
+            <p>
+              Cliquez sur <strong>Se connecter</strong> pour accéder à l'application.
+            </p>
+          </div>
+
+          <div class="test-step__media test-step__media--dashboard">
+            <img
+              src="assets/media/se_connecter.png"
+              alt="Aperçu de l'application KELASI une fois la connexion réussie"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-heading">
+        <div class="kicker">Remarques importantes</div>
+        <h2>Points à retenir pendant le test.</h2>
+      </div>
+
+      <div class="guide-note-grid">
+        <article class="guide-note-card">
+          <div class="guide-note-card__icon">
+            <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+              <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+              <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+              <line x1="12" y1="20" x2="12.01" y2="20"></line>
+            </svg>
+          </div>
+          <h3>Connexion Internet requise</h3>
+          <p>
+            Une connexion Internet est requise pour récupérer les informations de l'école après le scan du QR code.
+          </p>
+        </article>
+
+        <article class="guide-note-card">
+          <div class="guide-note-card__icon">
+            <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 9h18"></path>
+              <path d="M9 21V9"></path>
+              <path d="M15 21V9"></path>
+              <path d="M5 5h14l1 4H4l1-4z"></path>
+            </svg>
+          </div>
+          <h3>QR code avant la connexion</h3>
+          <p>
+            Le QR code doit être scanné avant la connexion utilisateur afin que l'application identifie d'abord l'école à charger.
+          </p>
+        </article>
+
+        <article class="guide-note-card">
+          <div class="guide-note-card__icon">
+            <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="11" width="18" height="10" rx="2"></rect>
+              <circle cx="12" cy="16" r="1"></circle>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+          </div>
+          <h3>Identifiants réservés au test</h3>
+          <p>
+            Les identifiants fournis sur cette page sont destinés uniquement au test et à la démonstration officielle.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="guide-navigation-banner">
+        <div>
+          <div class="kicker">Navigation</div>
+          <h2>Revenir rapidement vers le reste du site KELASI.</h2>
+          <p class="lead">
+            Utilisez ces liens pour retourner vers l'accueil ou revoir les démonstrations vidéo après le test.
+          </p>
+        </div>
+
+        <div class="guide-navigation-banner__actions">
+          <a class="btn primary" href="index.html">Retour à l'accueil</a>
+          <a class="btn outline" href="demo.html">Retour à la page démo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footergrid">
+      <div>
+        <div class="brandline">
+          <img src="assets/media/og-image.png" class="logo" importance="high" alt="Logo KELASI" style="border-radius:4px;"/>
+          <div>
+            <div style="font-size:18px; font-weight:bold;">KELASI</div>
+            <div class="muted">Gestion scolaire mobile offline.</div>
+          </div>
+        </div>
+        <div style="margin-top:12px" class="muted">
+          Procédure officielle de test, accès par QR code d'école et connexion utilisateur.
+        </div>
+      </div>
+
+      <div>
+        <div style="font-weight:900">Ressources</div>
+        <ul>
+          <li><a href="fonctionnalites.html">Fonctionnalités</a></li>
+          <li><a href="demo.html">Vidéos démo</a></li>
+          <li><a href="guide-test.html">Guide de test</a></li>
+          <li><a href="contact.html">Nous contacter</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div style="font-weight:900">Support</div>
+        <ul style="list-style:none; padding:0;">
+          <li style="margin-bottom:8px;">
+            <a href="https://wa.me/243810239619" style="display:flex; align-items:center; gap:8px;">
+              <img src="https://cdn.simpleicons.org/whatsapp/25D366" width="18" height="18" alt="" aria-hidden="true"/>
+              +243810239619
+            </a>
+          </li>
+          <li style="margin-bottom:8px;">
+            <a href="mailto:seven5software@gmail.com" style="display:flex; align-items:center; gap:8px;">
+              <img src="https://cdn.simpleicons.org/gmail/EA4335" width="18" height="18" alt="" aria-hidden="true"/>
+              seven5software@gmail.com
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <div style="font-weight:900">Suivez-nous</div>
+        <div class="footer-socials">
+          <a class="footer-social-link" href="https://www.facebook.com/profile.php?id=61579936882814" target="_blank" title="Facebook" rel="noopener noreferrer">
+            <img src="https://cdn.simpleicons.org/facebook/1877F2" width="20" height="20" alt="Facebook"/>
+          </a>
+          <a class="footer-social-link" href="https://www.youtube.com/@seven5-org" target="_blank" title="YouTube" rel="noopener noreferrer">
+            <img src="https://cdn.simpleicons.org/youtube/FF0000" width="20" height="20" alt="YouTube"/>
+          </a>
+          <a class="footer-social-link" href="https://play.google.com/store/apps/details?id=com.seven5.kelasi" target="_blank" title="Google Play" rel="noopener noreferrer">
+            <img src="https://cdn.simpleicons.org/googleplay/34A853" width="20" height="20" alt="Google Play"/>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom">
+      <div class="muted">© <span id="y"></span> KELASI. Tous droits réservés.</div>
+      <div class="muted">
+        <a href="confidentialite.html">Confidentialité</a> ·
+        <a href="conditions.html">Conditions</a>
+      </div>
+    </div>
+  </div>
+
+  <script>document.getElementById("y").textContent=new Date().getFullYear();</script>
+</footer>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
