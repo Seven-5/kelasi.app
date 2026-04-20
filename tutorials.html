@@ -1,0 +1,833 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>KELASI - Tutoriels</title>
+  <meta name="description" content="Tutoriels officiels KELASI : configuration d'une nouvelle école, utilisation du guide automatique et procédures détaillées étape par étape."/>
+  <link rel="canonical" href="https://kelasi.app/tutorials.html"/>
+  <meta name="robots" content="index,follow"/>
+  <meta name="theme-color" content="#6D28D9"/>
+  <meta property="og:title" content="KELASI - Tutoriels"/>
+  <meta property="og:description" content="Apprenez à utiliser KELASI avec des tutoriels clairs, responsives et pensés pour le terrain."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://kelasi.app/tutorials.html"/>
+  <meta property="og:image" content="https://kelasi.app/assets/media/demo-preview.jpg"/>
+  <meta property="og:locale" content="fr_FR"/>
+  <link rel="icon" type="image/png" href="assets/media/og-image.png"/>
+  <link rel="apple-touch-icon" href="assets/media/og-image.png"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+
+  <style>
+    .tutorials-page {
+      background:
+        radial-gradient(circle at top right, rgba(109, 40, 217, 0.08), transparent 32%),
+        radial-gradient(circle at bottom left, rgba(37, 99, 235, 0.07), transparent 30%),
+        #fff;
+    }
+
+    .tutorials-hero .guide-overview__footer {
+      flex-wrap: wrap;
+    }
+
+    .tutorials-shell {
+      display: grid;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .tutorials-list-panel,
+    .tutorials-content-panel {
+      background: rgba(255,255,255,0.94);
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      border-radius: 28px;
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+      backdrop-filter: blur(10px);
+    }
+
+    .tutorials-list-panel {
+      padding: 20px;
+    }
+
+    .tutorials-list-panel__head,
+    .tutorials-content-panel__head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .tutorials-list-panel__head h2,
+    .tutorials-content-panel__head h2 {
+      margin: 8px 0 0;
+      font-size: clamp(1.2rem, 2vw, 1.7rem);
+      line-height: 1.12;
+    }
+
+    .tutorials-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .tutorial-item {
+      width: 100%;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,250,252,0.96));
+      padding: 16px;
+      text-align: left;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
+      color: inherit;
+      font: inherit;
+    }
+
+    .tutorial-item:hover,
+    .tutorial-item:focus-visible {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 32px rgba(15, 23, 42, 0.08);
+      border-color: rgba(109, 40, 217, 0.28);
+      outline: none;
+    }
+
+    .tutorial-item.is-active {
+      border-color: rgba(109, 40, 217, 0.35);
+      background: linear-gradient(180deg, rgba(245, 243, 255, 0.96), rgba(255,255,255,0.98));
+      box-shadow: 0 18px 40px rgba(109, 40, 217, 0.12);
+    }
+
+    .tutorial-item__top {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: flex-start;
+      margin-bottom: 8px;
+    }
+
+    .tutorial-item__tag,
+    .tutorial-detail__tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: .82rem;
+      font-weight: 800;
+      letter-spacing: .02em;
+      color: #5b21b6;
+      background: rgba(109, 40, 217, 0.10);
+    }
+
+    .tutorial-item__index {
+      flex: 0 0 auto;
+      min-width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      color: #111827;
+      background: rgba(15, 23, 42, 0.06);
+    }
+
+    .tutorial-item__title {
+      margin: 0 0 6px;
+      font-size: 1.03rem;
+      font-weight: 900;
+      line-height: 1.25;
+    }
+
+    .tutorial-item__text {
+      margin: 0;
+      color: rgba(15, 23, 42, 0.72);
+      font-size: .95rem;
+      line-height: 1.55;
+    }
+
+    .tutorials-content-panel {
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    .tutorial-detail {
+      display: grid;
+      gap: 22px;
+    }
+
+    .tutorial-detail__layout {
+      display: grid;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .tutorial-video-card,
+    .tutorial-copy-card,
+    .tutorial-help-card {
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      border-radius: 26px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,250,252,0.94));
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
+    }
+
+    .tutorial-video-card {
+      padding: 16px;
+    }
+
+    .tutorial-video-card__label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+      color: rgba(15, 23, 42, 0.72);
+      font-size: .92rem;
+      font-weight: 700;
+    }
+
+    .tutorial-video-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      border-radius: 22px;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.96), rgba(30, 41, 59, 0.96));
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05);
+    }
+
+    .tutorial-video-frame iframe,
+    .tutorial-video-placeholder {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    .tutorial-video-placeholder {
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      text-align: center;
+      color: rgba(255,255,255,0.9);
+      background:
+        radial-gradient(circle at top, rgba(109, 40, 217, 0.36), transparent 42%),
+        linear-gradient(180deg, rgba(17,24,39,0.94), rgba(30,41,59,0.98));
+    }
+
+    .tutorial-video-placeholder__inner {
+      max-width: 290px;
+      display: grid;
+      gap: 14px;
+      justify-items: center;
+    }
+
+    .tutorial-video-placeholder__icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 22px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,0.08);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06);
+    }
+
+    .tutorial-video-placeholder__icon svg {
+      width: 34px;
+      height: 34px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .tutorial-copy-card {
+      padding: 22px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .tutorial-copy-card__head {
+      display: grid;
+      gap: 12px;
+    }
+
+    .tutorial-copy-card__head h3 {
+      margin: 0;
+      font-size: clamp(1.28rem, 2vw, 2rem);
+      line-height: 1.12;
+    }
+
+    .tutorial-copy-card__description {
+      margin: 0;
+      color: rgba(15, 23, 42, 0.76);
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    .tutorial-procedure {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .tutorial-procedure__item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 14px;
+      border-radius: 20px;
+      background: rgba(15, 23, 42, 0.03);
+      border: 1px solid rgba(15, 23, 42, 0.05);
+    }
+
+    .tutorial-procedure__index {
+      width: 42px;
+      height: 42px;
+      border-radius: 15px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      color: #5b21b6;
+      background: rgba(109, 40, 217, 0.10);
+      flex: 0 0 auto;
+    }
+
+    .tutorial-procedure__text strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: .98rem;
+      color: #111827;
+    }
+
+    .tutorial-procedure__text span {
+      color: rgba(15, 23, 42, 0.76);
+      line-height: 1.6;
+      font-size: .95rem;
+    }
+
+    .tutorial-help-card {
+      padding: 18px 20px;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .tutorial-help-card p {
+      margin: 4px 0 0;
+      color: rgba(15, 23, 42, 0.72);
+    }
+
+    .tutorial-help-card__actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    @media (min-width: 960px) {
+      .tutorials-shell {
+        grid-template-columns: minmax(290px, 340px) minmax(0, 1fr);
+      }
+
+      .tutorials-list-panel {
+        position: sticky;
+        top: 110px;
+      }
+
+      .tutorial-detail__layout {
+        grid-template-columns: minmax(320px, 430px) minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 959px) {
+      .tutorials-shell {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .tutorials-list-panel,
+      .tutorials-content-panel {
+        border-radius: 22px;
+      }
+
+      .tutorial-item,
+      .tutorial-copy-card,
+      .tutorial-video-card,
+      .tutorial-help-card {
+        border-radius: 20px;
+      }
+
+      .tutorial-procedure__item {
+        grid-template-columns: 1fr;
+      }
+
+      .tutorial-procedure__index {
+        width: 38px;
+        height: 38px;
+        border-radius: 13px;
+      }
+
+      .tutorial-help-card__actions {
+        width: 100%;
+      }
+
+      .tutorial-help-card__actions .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Tutoriels KELASI",
+    "itemListElement": [
+      {
+        "@type": "HowTo",
+        "position": 1,
+        "name": "Configuration d'une nouvelle école",
+        "description": "Ajouter une nouvelle école, configurer les classes, importer les élèves et fixer les frais."
+      },
+      {
+        "@type": "HowTo",
+        "position": 2,
+        "name": "Comment utiliser Kelasi sans guide",
+        "description": "Lancer l'application, ouvrir le guide automatique et poser une question directement depuis le bureau."
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="tutorials-page">
+<header class="header">
+  <div class="container">
+    <nav class="nav" aria-label="Navigation principale">
+      <a class="brand" href="index.html">
+        <img src="assets/media/og-image.png" class="logo" alt="Logo KELASI"/>
+        <span>KELASI</span>
+      </a>
+
+      <div class="navlinks" role="navigation">
+        <a data-nav href="index.html">Accueil</a>
+        <a data-nav href="fonctionnalites.html">Fonctionnalités</a>
+        <a data-nav href="demo.html">Démo & preuves</a>
+        <a data-nav href="tarifs.html">Tarifs</a>
+        <a data-nav href="ressources.html">Ressources</a>
+        <a data-nav href="contact.html">Contact</a>
+      </div>
+
+      <div class="navcta">
+        <a class="btn outline" href="guide-test.html">Guide de test</a>
+        <a class="btn primary" href="#liste-tutoriels">Voir les tutoriels</a>
+        <button class="burger" type="button" data-burger aria-label="Ouvrir le menu" aria-expanded="false">
+          <svg class="menu-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <div class="mobilemenu" data-mobilemenu data-open="false" aria-label="Menu mobile">
+      <a data-nav href="index.html">Accueil</a>
+      <a data-nav href="fonctionnalites.html">Fonctionnalités</a>
+      <a data-nav href="cas-dusage.html">Cas d'usage</a>
+      <a data-nav href="demo.html">Démo & preuves</a>
+      <a data-nav href="tarifs.html">Tarifs</a>
+      <a data-nav href="ressources.html">Ressources</a>
+      <a data-nav href="apropos.html">À propos</a>
+      <a data-nav href="contact.html">Contact</a>
+      <div class="cta">
+        <a class="btn primary full" href="#liste-tutoriels">Voir les tutoriels</a>
+        <a class="btn outline full" href="guide-test.html">Ouvrir le guide de test</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- <section class="section guide-hero tutorials-hero">
+    <div class="container guide-hero__grid">
+      <div class="guide-hero__content">
+        <div class="badge">Tutoriels officiels</div>
+        <h1>Apprenez à utiliser KELASI pas à pas.</h1>
+        <p class="lead">
+          Des tutoriels essentiels pour configurer votre école et maîtriser KELASI rapidement.
+        </p>
+
+        <div class="guide-hero__actions">
+          <a class="btn primary" href="#liste-tutoriels">Voir la liste des tutoriels</a>
+          <a class="btn outline" href="demo.html">Retour aux démonstrations</a>
+        </div>
+      </div>
+
+      <aside class="guide-overview" aria-label="Résumé des tutoriels KELASI">
+        <div class="guide-overview__header">
+          <span class="guide-overview__eyebrow">Ce que vous trouverez ici</span>
+          <strong>Vidéos et guides pour chaque fonctionnalité clé de KELASI.</strong>
+        </div>
+
+        <div class="guide-overview__list">
+          <div class="guide-overview__item">
+            <span class="guide-overview__index">01</span>
+            <div>
+              <strong>Configuration initiale</strong>
+              <span>Comment ajouter votre école et configurer les bases.</span>
+            </div>
+          </div>
+
+          <div class="guide-overview__item">
+            <span class="guide-overview__index">02</span>
+            <div>
+              <strong>Utiliser le guide automatique</strong>
+              <span>Obtenir de l'aide directement dans l'application en 2 clics.</span>
+            </div>
+          </div>
+
+          <div class="guide-overview__item">
+            <span class="guide-overview__index">03</span>
+            <div>
+              <strong>Support complet</strong>
+              <span>Toutes les étapes expliquées simplement, disponible partout, anytime.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-overview__footer">
+          <span>Vidéos</span>
+          <span>Guides pas à pas</span>
+          <span>Support 24/7</span>
+        </div>
+      </aside>
+    </div>
+  </section> -->
+
+  <section class="section">
+    <div class="container">
+      <div class="section-heading">
+        <div class="kicker">Centre de tutoriels</div>
+        <h2>Choisissez un tutoriel et affichez immédiatement sa vidéo ainsi que toute la procédure.</h2>
+        <p class="lead">
+          Sélectionnez un tutoriel et regardez la vidéo, puis suivez les étapes détaillées pour réussir.
+        </p>
+      </div>
+
+      <div class="tutorials-shell" id="liste-tutoriels">
+        <aside class="tutorials-list-panel" aria-label="Liste des tutoriels">
+          <div class="tutorials-list" id="tutorials-list"></div>
+        </aside>
+
+        <section class="tutorials-content-panel" aria-live="polite">
+          <div class="tutorial-detail" id="tutorial-detail"></div>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="guide-navigation-banner">
+        <div>
+          <div class="kicker">Navigation</div>
+          <h2>Continuer vers le guide de test ou revenir à la page des démonstrations.</h2>
+          <p class="lead">
+            Testez-vous ou demandez une démonstration pour aller plus loin.
+          </p>
+        </div>
+
+        <div class="guide-navigation-banner__actions">
+          <a class="btn primary" href="guide-test.html">Ouvrir le guide de test</a>
+          <a class="btn outline" href="demo.html">Retour à la page démo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footergrid">
+      <div>
+        <div class="brandline">
+          <img src="assets/media/og-image.png" class="logo" importance="high" alt="Logo KELASI" style="border-radius:4px;"/>
+          <div>
+            <div style="font-size:18px; font-weight:bold;">KELASI</div>
+            <div class="muted">Gestion scolaire mobile offline.</div>
+          </div>
+        </div>
+        <div style="margin-top:12px" class="muted">
+          Tutoriels officiels KELASI pour vous aider à bien démarrer.
+        </div>
+      </div>
+
+      <div>
+        <div style="font-weight:900">Ressources</div>
+        <ul>
+          <li><a href="fonctionnalites.html">Fonctionnalités</a></li>
+          <li><a href="demo.html">Vidéos démo</a></li>
+          <li><a href="guide-test.html">Guide de test</a></li>
+          <li><a href="tutorials.html">Tutoriels</a></li>
+          <li><a href="contact.html">Nous contacter</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div style="font-weight:900">Support</div>
+        <ul style="list-style:none; padding:0;">
+          <li style="margin-bottom:8px;">
+            <a href="https://wa.me/243810239619" style="display:flex; align-items:center; gap:8px;">
+              <img src="https://cdn.simpleicons.org/whatsapp/25D366" width="18" height="18" alt="" aria-hidden="true"/>
+              +243810239619
+            </a>
+          </li>
+          <li style="margin-bottom:8px;">
+            <a href="mailto:seven5software@gmail.com" style="display:flex; align-items:center; gap:8px;">
+              <img src="https://cdn.simpleicons.org/gmail/EA4335" width="18" height="18" alt="" aria-hidden="true"/>
+              seven5software@gmail.com
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <div style="font-weight:900">Suivez-nous</div>
+        <div class="footer-socials">
+          <a class="footer-social-link" href="https://www.facebook.com/profile.php?id=61579936882814" target="_blank" title="Facebook" rel="noopener noreferrer">
+            <img src="https://cdn.simpleicons.org/facebook/1877F2" width="20" height="20" alt="Facebook"/>
+          </a>
+          <a class="footer-social-link" href="https://www.youtube.com/@seven5-org" target="_blank" title="YouTube" rel="noopener noreferrer">
+            <img src="https://cdn.simpleicons.org/youtube/FF0000" width="20" height="20" alt="YouTube"/>
+          </a>
+          <a class="footer-social-link" href="https://play.google.com/store/apps/details?id=com.seven5.kelasi" target="_blank" title="Google Play" rel="noopener noreferrer">
+            <img src="https://cdn.simpleicons.org/googleplay/34A853" width="20" height="20" alt="Google Play"/>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom">
+      <div class="muted">© <span id="y"></span> KELASI. Tous droits réservés.</div>
+      <div class="muted">
+        <a href="confidentialite.html">Confidentialité</a> ·
+        <a href="conditions.html">Conditions</a>
+      </div>
+    </div>
+  </div>
+
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</footer>
+<script src="assets/js/main.js" defer></script>
+<script>
+  const tutorials = [
+    {
+      id: 'new-school',
+      index: '01',
+      tag: 'Configuration',
+      title: "Configuration d'une nouvelle école",
+      shortText: "Ajouter une école, configurer les classes, importer les élèves et fixer les frais dans l'ordre logique.",
+      description: "Dans ce tutoriel, nous allons voir comment ajouter une nouvelle école dans l'application KELASI et effectuer les premières configurations nécessaires pour démarrer proprement.",
+      youtubeId: '4UqsiuG_Qn0',
+      youtubeUrl: '',
+      videoLabel: 'Vidéo tutorielle portrait',
+      actionLabel: 'Configuration initiale',
+      helpTitle: 'Besoin d\'aide supplémentaire ?',
+      helpText: "Consultez notre guide de test ou demandez une démonstration personnalisée.",
+      steps: [
+        {
+          title: 'Cliquer sur nouvelle école',
+          text: "Depuis l'écran de départ, ouvrez l'action permettant de créer un nouvel établissement dans l'application."
+        },
+        {
+          title: "Remplir le formulaire de l'école",
+          text: "Saisissez les informations de l'école puis cliquez sur Enregistrer pour valider la création."
+        },
+        {
+          title: 'Ajouter les options et les classes',
+          text: "Créez ensuite les options et les classes, puis importez la liste des élèves par classe depuis un fichier Excel ou un fichier Word."
+        },
+        {
+          title: 'Respecter les colonnes requises',
+          text: "Les colonnes acceptées sont par exemple : Noms | Sexe ou Nom | Postnom | Prénom | Sexe."
+        },
+        {
+          title: 'Fixer les frais',
+          text: "Définissez les frais par trimestre et/ou par mois pour chaque classe, groupe de classes ou option selon votre organisation."
+        },
+        {
+          title: 'Ajouter les rubriques de ventilation',
+          text: "Ajoutez enfin les rubriques pour la ventilation si vous souhaitez activer cette fonctionnalité. Cette étape reste facultative."
+        }
+      ]
+    },
+    {
+      id: 'without-guide',
+      index: '02',
+      tag: 'Guide automatique',
+      title: 'Comment utiliser Kelasi sans guide',
+      shortText: "Poser directement une question dans l'application pour obtenir automatiquement la procédure sans chercher manuellement.",
+      description: "Dans ce tutoriel, nous allons voir comment utiliser KELASI sans passer par un guide classique, Juste en utilisant Medime AI que vous pouvez accéder via le bouton flottant ou la barre de recherche du bureau.",
+      youtubeId: 'ST9EX09oOrs',
+      youtubeUrl: '',
+      videoLabel: 'Vidéo tutorielle portrait',
+      actionLabel: 'Utilisation rapide',
+      helpTitle: 'Besoin de plus d\'aide ?',
+      helpText: "Contactez-nous directement ou explorez le guide de test pour des cas d'usage avancés.",
+      steps: [
+        {
+          title: "Lancer l'application",
+          text: "Ouvrez KELASI normalement jusqu'à arriver sur le bureau principal."
+        },
+        {
+          title: 'Ouvrir le guide automatique',
+          text: "Cliquez sur le bouton flottant ou sur la barre de recherche visible au bureau pour déclencher l'assistance."
+        },
+        {
+          title: 'Saisir la question',
+          text: "Écrivez comment faire l'action recherchée afin que le système interprète votre besoin."
+        },
+        {
+          title: 'Lire la procédure obtenue',
+          text: "KELASI retourne automatiquement les étapes ou le guide correspondant pour aider l'utilisateur sans quitter l'application."
+        }
+      ]
+    }
+  ];
+
+  const listEl = document.getElementById('tutorials-list');
+  const detailEl = document.getElementById('tutorial-detail');
+
+  function getEmbedUrl(item) {
+    if (item.youtubeUrl && /youtube\.com\/embed\//.test(item.youtubeUrl)) {
+      return item.youtubeUrl;
+    }
+
+    if (item.youtubeId && /^[a-zA-Z0-9_-]{6,}$/.test(item.youtubeId)) {
+      return `https://www.youtube.com/embed/${item.youtubeId}?rel=0`;
+    }
+
+    if (item.youtubeUrl) {
+      try {
+        const url = new URL(item.youtubeUrl);
+        if (url.hostname.includes('youtu.be')) {
+          const id = url.pathname.replace('/', '').trim();
+          if (id) return `https://www.youtube.com/embed/${id}?rel=0`;
+        }
+        if (url.hostname.includes('youtube.com')) {
+          const v = url.searchParams.get('v');
+          if (v) return `https://www.youtube.com/embed/${v}?rel=0`;
+        }
+      } catch (e) {}
+    }
+
+    return '';
+  }
+
+  function renderVideo(item) {
+    const embedUrl = getEmbedUrl(item);
+    if (embedUrl) {
+      return `
+        <iframe
+          src="${embedUrl}"
+          title="${item.title}"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen>
+        </iframe>
+      `;
+    }
+
+    return `
+      <div class="tutorial-video-placeholder" role="img" aria-label="Emplacement vidéo à compléter pour ${item.title}">
+        <div class="tutorial-video-placeholder__inner">
+          <div class="tutorial-video-placeholder__icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M23 7s-.2-1.4-.8-2c-.8-.8-1.7-.8-2.1-.9C17.2 4 12 4 12 4h0s-5.2 0-8.1.1c-.4.1-1.3.1-2.1.9C1.2 5.6 1 7 1 7S.8 8.6.8 10.3v1.5C.8 13.4 1 15 1 15s.2 1.4.8 2c.8.8 1.9.8 2.4.9C6 18.1 12 18.1 12 18.1s5.2 0 8.1-.1c.4-.1 1.3-.1 2.1-.9.6-.6.8-2 .8-2s.2-1.6.2-3.2v-1.5C23.2 8.6 23 7 23 7Z"></path>
+              <path d="m9.8 8.5 5.5 3.2-5.5 3.2V8.5Z" fill="currentColor" stroke="none"></path>
+            </svg>
+          </div>
+          <div>
+            <strong style="display:block; font-size:1.05rem; margin-bottom:8px;">Vidéo YouTube à insérer</strong>
+            <div style="line-height:1.65; color:rgba(255,255,255,0.78);">Ajoutez ici le lien de la vidéo portrait de ce tutoriel pour afficher automatiquement l'embed YouTube.</div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderDetails(item) {
+    detailEl.innerHTML = `
+      <div class="tutorial-detail__layout">
+        <div class="tutorial-video-card">
+          <div style="margin-bottom: 12px;">${item.videoLabel}</div>
+          <div class="tutorial-video-frame">
+            ${renderVideo(item)}
+          </div>
+        </div>
+
+        <div class="tutorial-video-card">
+          <h3 style="margin: 0 0 12px; font-size: 1.4rem;">${item.title}</h3>
+          <p style="margin: 0 0 20px; color: rgba(15, 23, 42, 0.76); line-height: 1.7; font-size: 1rem;">${item.description}</p>
+          
+          <div style="margin-top: 24px;">
+            <h4 style="margin: 0 0 16px; font-size: 1.1rem; font-weight: 700;">Procédure</h4>
+            <ol style="margin: 0; padding: 0 0 0 20px; list-style: decimal;">
+              ${item.steps.map((step, idx) => `
+                <li style="margin-bottom: 8px; line-height: 1.6;">
+                  ${step.title}
+                </li>
+              `).join('')}
+            </ol>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  function setActive(id) {
+    const target = tutorials.find(item => item.id === id) || tutorials[0];
+    document.querySelectorAll('.tutorial-item').forEach(btn => {
+      btn.classList.toggle('is-active', btn.dataset.tutorialId === target.id);
+      btn.setAttribute('aria-pressed', String(btn.dataset.tutorialId === target.id));
+    });
+    renderDetails(target);
+  }
+
+  listEl.innerHTML = tutorials.map(item => `
+    <button
+      class="tutorial-item${item.id === tutorials[0].id ? ' is-active' : ''}"
+      type="button"
+      data-tutorial-id="${item.id}"
+      aria-pressed="${item.id === tutorials[0].id ? 'true' : 'false'}">
+      ${item.title}
+    </button>
+  `).join('');
+
+  listEl.addEventListener('click', (event) => {
+    const button = event.target.closest('.tutorial-item');
+    if (!button) return;
+    setActive(button.dataset.tutorialId);
+  });
+
+  listEl.addEventListener('keydown', (event) => {
+    const button = event.target.closest('.tutorial-item');
+    if (!button) return;
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      setActive(button.dataset.tutorialId);
+    }
+  });
+
+  setActive(tutorials[0].id);
+</script>
+</body>
+</html>
