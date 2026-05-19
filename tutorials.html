@@ -17,6 +17,8 @@
   <link rel="icon" type="image/png" href="assets/media/og-image.png"/>
   <link rel="apple-touch-icon" href="assets/media/og-image.png"/>
   <link rel="stylesheet" href="assets/css/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="assets/js/site-config.js"></script>
 
   <style>
     .tutorials-page {
@@ -33,7 +35,13 @@
     .tutorials-shell {
       display: grid;
       gap: 28px;
-      align-items: start;
+      grid-template-columns: 1fr;
+    }
+
+    .tutorials-list-container {
+      display: flex;
+      justify-content: center;
+      width: 100%;
     }
 
     .tutorials-list-panel,
@@ -47,6 +55,30 @@
 
     .tutorials-list-panel {
       padding: 20px;
+      width: 100%;
+    }
+
+    .tutorials-content-panel {
+      padding: 20px;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    @media (min-width: 960px) {
+      .tutorials-shell {
+        grid-template-columns: minmax(290px, 340px) minmax(0, 1fr);
+      }
+
+      .tutorials-list-panel {
+        position: sticky;
+        top: 110px;
+      }
+    }
+
+    @media (max-width: 959px) {
+      .tutorials-shell {
+        grid-template-columns: 1fr;
+      }
     }
 
     .tutorials-list-panel__head,
@@ -65,9 +97,85 @@
       line-height: 1.12;
     }
 
+    .tutorials-search-box {
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      background: #fff;
+      border: 1px solid rgba(15, 23, 42, 0.15);
+      border-radius: 24px;
+      padding: 2px 4px 2px 16px;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+      transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .tutorials-search-box:focus-within {
+      border-color: rgba(109, 40, 217, 0.3);
+      box-shadow: 0 2px 12px rgba(109, 40, 217, 0.12);
+    }
+
+    .tutorials-search-input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      padding: 10px 12px;
+      font-size: 1rem;
+      color: #111827;
+      outline: none;
+    }
+
+    .tutorials-search-input::placeholder {
+      color: rgba(15, 23, 42, 0.5);
+    }
+
+    .tutorials-search-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border: none;
+      background: transparent;
+      color: rgba(15, 23, 42, 0.6);
+      cursor: pointer;
+      border-radius: 50%;
+      font-size: 1rem;
+      transition: background 0.2s ease, color 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .tutorials-search-btn:hover {
+      background: rgba(15, 23, 42, 0.08);
+      color: #111827;
+    }
+
+    .tutorials-search-btn:active {
+      background: rgba(15, 23, 42, 0.12);
+    }
+
     .tutorials-list {
       display: grid;
       gap: 12px;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 600px) {
+      .tutorials-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 960px) {
+      .tutorials-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .tutorials-list {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
 
     .tutorial-item {
@@ -197,11 +305,17 @@
     }
 
     .tutorial-video-frame iframe,
+    .tutorial-video-frame video,
     .tutorial-video-placeholder {
       width: 100%;
       height: 100%;
       border: 0;
       display: block;
+    }
+
+    .tutorial-video-frame video {
+      background: #020617;
+      object-fit: contain;
     }
 
     .tutorial-video-placeholder {
@@ -240,6 +354,51 @@
       stroke-width: 1.7;
       stroke-linecap: round;
       stroke-linejoin: round;
+    }
+
+    .tutorial-video-stack {
+      display: grid;
+      gap: 12px;
+    }
+
+    .tutorial-video-sources {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tutorial-video-source {
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      border-radius: 999px;
+      background: #fff;
+      color: #0f172a;
+      padding: 9px 14px;
+      font-size: .9rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .tutorial-video-source:hover,
+    .tutorial-video-source:focus-visible {
+      transform: translateY(-1px);
+      border-color: rgba(91, 33, 182, 0.34);
+      box-shadow: 0 10px 22px rgba(91, 33, 182, 0.10);
+      outline: none;
+    }
+
+    .tutorial-video-source.is-active {
+      color: #5b21b6;
+      background: rgba(109, 40, 217, 0.10);
+      border-color: rgba(91, 33, 182, 0.26);
+    }
+
+    .tutorial-video-panel {
+      display: none;
+    }
+
+    .tutorial-video-panel.is-active {
+      display: block;
     }
 
     .tutorial-copy-card {
@@ -311,6 +470,156 @@
       font-size: .95rem;
     }
 
+
+    .tutorial-step-card__badge {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(16, 185, 129, 0.12);
+      color: #047857;
+      font-size: .82rem;
+      font-weight: 900;
+    }
+
+    .tutorial-step-viewer {
+      display: grid;
+      gap: 18px;
+      padding: 18px;
+      border-radius: 24px;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      background: linear-gradient(180deg, rgba(248,250,252,0.92), rgba(255,255,255,0.98));
+    }
+
+    .tutorial-step-viewer__head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .tutorial-step-viewer__count {
+      color: rgba(15, 23, 42, 0.62);
+      font-size: .92rem;
+      font-weight: 700;
+    }
+
+    .tutorial-step-viewer__body {
+      display: grid;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .tutorial-step-stage {
+      min-width: 0;
+      overflow: hidden;
+      border-radius: 22px;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(241,245,249,0.92));
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.45);
+    }
+
+    .tutorial-step-stage__track {
+      display: flex;
+      transition: transform .35s ease;
+      will-change: transform;
+    }
+
+    .tutorial-step-stage__slide {
+      min-width: 100%;
+      padding: 18px;
+      display: grid;
+      place-items: center;
+      min-height: 320px;
+    }
+
+    .tutorial-step-stage__slide img {
+      display: block;
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      max-height: 520px;
+      object-fit: contain;
+      border-radius: 18px;
+      box-shadow: 0 16px 38px rgba(15, 23, 42, 0.10);
+    }
+
+    .tutorial-step-stage__placeholder {
+      max-width: 320px;
+      display: grid;
+      gap: 10px;
+      text-align: center;
+      justify-items: center;
+      color: rgba(15, 23, 42, 0.74);
+    }
+
+    .tutorial-step-stage__placeholder-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 22px;
+      display: grid;
+      place-items: center;
+      background: rgba(15, 23, 42, 0.06);
+      color: #5b21b6;
+      box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.05);
+    }
+
+    .tutorial-step-stage__placeholder-icon svg {
+      width: 32px;
+      height: 32px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .tutorial-step-aside {
+      min-width: 0;
+      display: grid;
+      gap: 18px;
+      align-content: space-between;
+    }
+
+    .tutorial-step-aside__meta {
+      display: grid;
+      gap: 10px;
+    }
+
+    .tutorial-step-aside__title {
+      margin: 0;
+      font-size: clamp(1.02rem, 1.6vw, 1.28rem);
+      line-height: 1.3;
+      color: #111827;
+    }
+
+    .tutorial-step-aside__text {
+      margin: 0;
+      color: rgba(15, 23, 42, 0.74);
+      line-height: 1.7;
+      font-size: .97rem;
+    }
+
+    .tutorial-step-nav {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .tutorial-step-nav .btn {
+      min-width: 138px;
+      justify-content: center;
+    }
+
+    .tutorial-step-nav .btn:disabled {
+      opacity: .56;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
     .tutorial-help-card {
       padding: 18px 20px;
       display: flex;
@@ -332,17 +641,18 @@
     }
 
     @media (min-width: 960px) {
-      .tutorials-shell {
-        grid-template-columns: minmax(290px, 340px) minmax(0, 1fr);
-      }
-
       .tutorials-list-panel {
-        position: sticky;
-        top: 110px;
+        position: relative;
       }
 
       .tutorial-detail__layout {
         grid-template-columns: minmax(320px, 430px) minmax(0, 1fr);
+      }
+    }
+
+    @media (min-width: 960px) {
+      .tutorial-step-viewer__body {
+        grid-template-columns: minmax(0, 1fr) minmax(220px, 280px);
       }
     }
 
@@ -373,6 +683,25 @@
         width: 38px;
         height: 38px;
         border-radius: 13px;
+      }
+
+      .tutorial-step-viewer {
+        padding: 16px;
+        border-radius: 20px;
+      }
+
+      .tutorial-step-stage__slide {
+        min-height: 240px;
+        padding: 14px;
+      }
+
+      .tutorial-step-nav {
+        width: 100%;
+      }
+
+      .tutorial-step-nav .btn {
+        flex: 1 1 0;
+        min-width: 0;
       }
 
       .tutorial-help-card__actions {
@@ -512,25 +841,29 @@
   </section> -->
 
   <section class="section">
-    <div class="container">
-      <div class="section-heading">
-        <div class="kicker">Centre de tutoriels</div>
-        <h2>Choisissez un tutoriel et affichez immédiatement sa vidéo ainsi que toute la procédure.</h2>
-        <p class="lead">
-          Sélectionnez un tutoriel et regardez la vidéo, puis suivez les étapes détaillées pour réussir.
-        </p>
-      </div>
-
+    <!-- <div class="container"> -->
       <div class="tutorials-shell" id="liste-tutoriels">
-        <aside class="tutorials-list-panel" aria-label="Liste des tutoriels">
+        <div class="tutorials-list-panel" aria-label="Liste des tutoriels">
+          <div class="tutorials-search-box">
+            <input 
+              type="text" 
+              id="tutorials-search" 
+              placeholder="Rechercher un tutoriel..." 
+              class="tutorials-search-input"
+              autocomplete="off"
+            />
+            <button class="tutorials-search-btn" aria-label="Chercher">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
           <div class="tutorials-list" id="tutorials-list"></div>
-        </aside>
+        </div>
 
         <section class="tutorials-content-panel" aria-live="polite">
           <div class="tutorial-detail" id="tutorial-detail"></div>
         </section>
       </div>
-    </div>
+    <!-- </div> -->
   </section>
 
   <section class="section">
@@ -627,7 +960,7 @@
 </footer>
 <script src="assets/js/main.js" defer></script>
 <script>
-  const tutorials = [
+  const fallbackTutorials = [
     {
       id: 'new-school',
       index: '01',
@@ -637,7 +970,7 @@
       description: "Dans ce tutoriel, nous allons voir comment ajouter une nouvelle école dans l'application KELASI et effectuer les premières configurations nécessaires pour démarrer proprement.",
       youtubeId: '4UqsiuG_Qn0',
       youtubeUrl: '',
-      videoLabel: 'Vidéo tutorielle portrait',
+      videoLabel: '',
       actionLabel: 'Configuration initiale',
       helpTitle: 'Besoin d\'aide supplémentaire ?',
       helpText: "Consultez notre guide de test ou demandez une démonstration personnalisée.",
@@ -674,10 +1007,10 @@
       tag: 'Guide automatique',
       title: 'Comment utiliser Kelasi sans guide',
       shortText: "Poser directement une question dans l'application pour obtenir automatiquement la procédure sans chercher manuellement.",
-      description: "Dans ce tutoriel, nous allons voir comment utiliser KELASI sans passer par un guide classique, Juste en utilisant Medime AI que vous pouvez accéder via le bouton flottant ou la barre de recherche du bureau.",
+      description: "Dans ce tutoriel, nous allons voir comment utiliser KELASI sans passer par un guide classique, en utilisant simplement l'assistance intégrée depuis le bouton flottant ou la barre de recherche du bureau.",
       youtubeId: 'ST9EX09oOrs',
       youtubeUrl: '',
-      videoLabel: 'Vidéo tutorielle portrait',
+      videoLabel: '',
       actionLabel: 'Utilisation rapide',
       helpTitle: 'Besoin de plus d\'aide ?',
       helpText: "Contactez-nous directement ou explorez le guide de test pour des cas d'usage avancés.",
@@ -702,8 +1035,55 @@
     }
   ];
 
+  let tutorials = [];
+  let activeTutorialId = '';
+  const tutorialStepPositions = Object.create(null);
+
   const listEl = document.getElementById('tutorials-list');
   const detailEl = document.getElementById('tutorial-detail');
+  const searchInput = document.getElementById('tutorials-search');
+  const siteConfig = window.KELASI_SITE_CONFIG || {};
+  const tutorialsConfig = siteConfig.tutorials || {};
+  let searchQuery = '';
+
+  function normalizeBaseUrl(value) {
+    return String(value || '').trim().replace(/\/+$/, '');
+  }
+
+  function buildApiUrl(path) {
+    const rawPath = String(path || '').trim();
+    if (!rawPath) return '';
+    if (/^https?:\/\//i.test(rawPath)) return rawPath;
+
+    const baseUrl = normalizeBaseUrl(tutorialsConfig.apiBaseUrl || siteConfig.apiBaseUrl);
+    if (!baseUrl) return rawPath;
+
+    return `${baseUrl}${rawPath.startsWith('/') ? '' : '/'}${rawPath}`;
+  }
+
+  function withLanguageParam(url) {
+    const language = String(
+      tutorialsConfig.language ||
+      document.documentElement.lang ||
+      'fr'
+    ).trim().split('-')[0] || 'fr';
+
+    try {
+      const target = new URL(url, window.location.href);
+      target.searchParams.set('language', language);
+      return target.toString();
+    } catch (e) {
+      return url;
+    }
+  }
+
+  function resolveRemoteUrl(value) {
+    const rawValue = String(value || '').trim();
+    if (!rawValue) return '';
+    if (/^(https?:|data:|blob:)/i.test(rawValue)) return rawValue;
+    if (rawValue.startsWith('/')) return buildApiUrl(rawValue);
+    return rawValue;
+  }
 
   function getEmbedUrl(item) {
     if (item.youtubeUrl && /youtube\.com\/embed\//.test(item.youtubeUrl)) {
@@ -731,70 +1111,490 @@
     return '';
   }
 
-  function renderVideo(item) {
+  function getHostedVideoUrl(item) {
+    const direct = item.videoUrl || item.video_url || item.video || '';
+    return typeof direct === 'string' ? resolveRemoteUrl(direct) : '';
+  }
+
+  function getVideoSources(item) {
+    const sources = [];
+    const hostedVideoUrl = getHostedVideoUrl(item);
+    if (hostedVideoUrl) {
+      sources.push({
+        id: 'hosted',
+        type: 'direct',
+        label: item.videoLabel || 'Vidéo du tutoriel',
+        url: hostedVideoUrl,
+      });
+    }
+
     const embedUrl = getEmbedUrl(item);
     if (embedUrl) {
+      sources.push({
+        id: 'youtube',
+        type: 'youtube',
+        label: hostedVideoUrl ? 'YouTube' : (item.videoLabel || 'YouTube'),
+        url: embedUrl,
+      });
+    }
+
+    return sources;
+  }
+
+  function renderVideo(item) {
+    const sources = getVideoSources(item);
+    if (!sources.length) {
       return `
-        <iframe
-          src="${embedUrl}"
-          title="${item.title}"
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen>
-        </iframe>
+        <div class="tutorial-video-frame">
+          <div class="tutorial-video-placeholder" role="img" aria-label="Emplacement vidéo à compléter pour ${escapeHtml(item.title)}">
+            <div class="tutorial-video-placeholder__inner">
+              <div class="tutorial-video-placeholder__icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M23 7s-.2-1.4-.8-2c-.8-.8-1.7-.8-2.1-.9C17.2 4 12 4 12 4h0s-5.2 0-8.1.1c-.4.1-1.3.1-2.1.9C1.2 5.6 1 7 1 7S.8 8.6.8 10.3v1.5C.8 13.4 1 15 1 15s.2 1.4.8 2c.8.8 1.9.8 2.4.9C6 18.1 12 18.1 12 18.1s5.2 0 8.1-.1c.4-.1 1.3-.1 2.1-.9.6-.6.8-2 .8-2s.2-1.6.2-3.2v-1.5C23.2 8.6 23 7 23 7Z"></path>
+                  <path d="m9.8 8.5 5.5 3.2-5.5 3.2V8.5Z" fill="currentColor" stroke="none"></path>
+                </svg>
+              </div>
+              <div>
+                <strong style="display:block; font-size:1.05rem; margin-bottom:8px;">Vidéo à ajouter</strong>
+                <div style="line-height:1.65; color:rgba(255,255,255,0.78);">La vidéo de ce tutoriel sera ajoutée prochainement.</div>
+              </div>
+            </div>
+          </div>
+        </div>
       `;
     }
 
-    return `
-      <div class="tutorial-video-placeholder" role="img" aria-label="Emplacement vidéo à compléter pour ${item.title}">
-        <div class="tutorial-video-placeholder__inner">
-          <div class="tutorial-video-placeholder__icon">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M23 7s-.2-1.4-.8-2c-.8-.8-1.7-.8-2.1-.9C17.2 4 12 4 12 4h0s-5.2 0-8.1.1c-.4.1-1.3.1-2.1.9C1.2 5.6 1 7 1 7S.8 8.6.8 10.3v1.5C.8 13.4 1 15 1 15s.2 1.4.8 2c.8.8 1.9.8 2.4.9C6 18.1 12 18.1 12 18.1s5.2 0 8.1-.1c.4-.1 1.3-.1 2.1-.9.6-.6.8-2 .8-2s.2-1.6.2-3.2v-1.5C23.2 8.6 23 7 23 7Z"></path>
-              <path d="m9.8 8.5 5.5 3.2-5.5 3.2V8.5Z" fill="currentColor" stroke="none"></path>
-            </svg>
-          </div>
-          <div>
-            <strong style="display:block; font-size:1.05rem; margin-bottom:8px;">Vidéo YouTube à insérer</strong>
-            <div style="line-height:1.65; color:rgba(255,255,255,0.78);">Ajoutez ici le lien de la vidéo portrait de ce tutoriel pour afficher automatiquement l'embed YouTube.</div>
-          </div>
+    const sourceButtons = sources.length > 1
+      ? `
+        <div class="tutorial-video-sources" role="tablist" aria-label="Choix de la vidéo">
+          ${sources.map((source, index) => `
+            <button
+              class="tutorial-video-source${index === 0 ? ' is-active' : ''}"
+              type="button"
+              data-video-source="${escapeHtml(source.id)}"
+              aria-pressed="${index === 0 ? 'true' : 'false'}">
+              ${escapeHtml(source.label)}
+            </button>
+          `).join('')}
         </div>
+      `
+      : '';
+
+    const panels = sources.map((source, index) => `
+      <div class="tutorial-video-frame tutorial-video-panel${index === 0 ? ' is-active' : ''}" data-video-panel="${escapeHtml(source.id)}">
+        ${source.type === 'youtube'
+          ? `
+            <iframe
+              src="${escapeHtml(source.url)}"
+              title="${escapeHtml(item.title)}"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen>
+            </iframe>
+          `
+          : `
+            <video controls playsinline preload="metadata">
+              <source src="${escapeHtml(source.url)}" />
+              Votre navigateur ne peut pas lire cette vidéo.
+            </video>
+          `}
+      </div>
+    `).join('');
+
+    return `
+      <div class="tutorial-video-stack">
+        ${sourceButtons}
+        ${panels}
       </div>
     `;
   }
 
+  function escapeHtml(value) {
+    return String(value == null ? '' : value)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
+
+  function asObject(value) {
+    return value && typeof value === 'object' ? value : {};
+  }
+
+  function normalizeStep(step, idx) {
+    if (typeof step === 'string') {
+      return {
+        index: idx + 1,
+        title: `Étape ${idx + 1}`,
+        text: step,
+      };
+    }
+
+    const source = asObject(step);
+    const resolvedIndex = Number(source.index || idx + 1);
+
+    return Object.assign({}, source, {
+      index: Number.isFinite(resolvedIndex) ? resolvedIndex : idx + 1,
+      title: source.title || `Étape ${idx + 1}`,
+      text: source.text || source.description || '',
+    });
+  }
+
+  function stepText(step) {
+    const source = asObject(step);
+    return source.description || source.text || '';
+  }
+
+  function stepImage(step) {
+    const source = asObject(step);
+    return resolveRemoteUrl(source.imageUrl || source.image_url || source.finalImageUrl || source.final_image_url || source.image || '');
+  }
+
+  function stepSvg(step) {
+    const source = asObject(step);
+    return resolveRemoteUrl(source.svgUrl || source.svg_url || source.svg || '');
+  }
+
+  function tutorialKeys(item) {
+    const keys = [];
+    const id = String(item.id || '').trim().toLowerCase();
+    const title = String(item.title || '').trim().toLowerCase();
+
+    if (id) keys.push(`id:${id}`);
+    if (title) keys.push(`title:${title}`);
+
+    return keys;
+  }
+
+  function stepPositionLabel(index, total) {
+    return `Étape ${index} sur ${total}`;
+  }
+
+  function hasStepVisual(step) {
+    return Boolean(stepImage(step) || stepSvg(step));
+  }
+
+  function hasVisualSteps(item) {
+    return Array.isArray(item.steps) && item.steps.some(hasStepVisual);
+  }
+
+  function getTutorialById(id) {
+    return tutorials.find(item => item.id === id) || null;
+  }
+
+  function getTutorialStepIndex(item) {
+    if (!item.steps.length) return 0;
+
+    const rawIndex = Number(
+      Object.prototype.hasOwnProperty.call(tutorialStepPositions, item.id)
+        ? tutorialStepPositions[item.id]
+        : 0
+    );
+    if (!Number.isFinite(rawIndex)) return 0;
+
+    return Math.min(Math.max(rawIndex, 0), item.steps.length - 1);
+  }
+
+  function renderProcedureItem(step, idx) {
+    const index = Number(step.index || idx + 1);
+    const title = step.title || `Étape ${index}`;
+    return `
+      <li class="tutorial-procedure__item">
+        <span class="tutorial-procedure__index">${index}</span>
+        <div class="tutorial-procedure__text">
+          <strong>${escapeHtml(title)}</strong>
+          <span>${escapeHtml(stepText(step))}</span>
+        </div>
+      </li>
+    `;
+  }
+
+  function renderStepSlide(step, idx) {
+    const index = Number(step.index || idx + 1);
+    const image = stepImage(step);
+    const svg = stepSvg(step);
+    const visualUrl = image || svg;
+    const title = step.title || `Étape ${index}`;
+    const safeTitle = escapeHtml(title);
+    let visualMarkup = '';
+
+    if (visualUrl) {
+      visualMarkup = `
+          <img
+            src="${escapeHtml(visualUrl)}"
+            alt="Illustration de ${safeTitle}"
+            loading="lazy"
+          />
+        `;
+    } else {
+      visualMarkup = `
+          <div class="tutorial-step-stage__placeholder">
+            <div class="tutorial-step-stage__placeholder-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v11a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 17.5v-11Z"></path>
+                <path d="m7.5 15 2.5-3 2 2.5 2.5-3.5 2 2.5"></path>
+                <circle cx="9" cy="9" r="1.2" fill="currentColor" stroke="none"></circle>
+              </svg>
+            </div>
+            <strong>${safeTitle}</strong>
+            <span>Image de l'étape à venir.</span>
+          </div>
+        `;
+    }
+
+    return `
+      <div class="tutorial-step-stage__slide" data-step-slide aria-hidden="${idx === 0 ? 'false' : 'true'}">
+        ${visualMarkup}
+      </div>
+    `;
+  }
+
+  function renderStepViewer(item) {
+    if (!item.steps.length) {
+      return '<p class="lead">Les étapes seront ajoutées prochainement.</p>';
+    }
+
+    const activeIndex = getTutorialStepIndex(item);
+    const activeStep = item.steps[activeIndex] || item.steps[0];
+    const stepBadge = escapeHtml(stepPositionLabel(activeIndex + 1, item.steps.length));
+    const stepCount = escapeHtml(String(item.steps.length) + ' étapes');
+    const activeTitle = escapeHtml(activeStep.title || ('Étape ' + (activeIndex + 1)));
+    const activeText = escapeHtml(stepText(activeStep) || 'Suivez cette étape directement à l’écran.');
+    const trackStyle = 'transform: translateX(-' + (activeIndex * 100) + '%);';
+    const prevDisabled = activeIndex <= 0 ? 'disabled' : '';
+    const nextDisabled = activeIndex >= item.steps.length - 1 ? 'disabled' : '';
+
+    return `
+      <section class="tutorial-step-viewer" data-step-viewer data-tutorial-id="${escapeHtml(item.id)}">
+        <div class="tutorial-step-viewer__head">
+          <span class="tutorial-step-card__badge" data-step-badge>${stepBadge}</span>
+          <span class="tutorial-step-viewer__count" data-step-count>${stepCount}</span>
+        </div>
+
+        <div class="tutorial-step-viewer__body">
+          <div class="tutorial-step-stage">
+            <div
+              class="tutorial-step-stage__track"
+              data-step-track
+              style="${trackStyle}"
+            >
+              ${item.steps.map(renderStepSlide).join('')}
+            </div>
+          </div>
+
+          <div class="tutorial-step-aside">
+            <div class="tutorial-step-aside__meta">
+              <h4 class="tutorial-step-aside__title" data-step-title>${activeTitle}</h4>
+              <p class="tutorial-step-aside__text" data-step-text>${activeText}</p>
+            </div>
+
+            <div class="tutorial-step-nav">
+              <button
+                class="btn outline"
+                type="button"
+                data-step-action="prev"
+                ${prevDisabled}
+              >
+                Précédent
+              </button>
+              <button
+                class="btn primary"
+                type="button"
+                data-step-action="next"
+                ${nextDisabled}
+              >
+                Suivant
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    `;
+  }
+
+  function updateStepViewer(item) {
+    const viewerEl = detailEl.querySelector('[data-step-viewer]');
+    if (!viewerEl || viewerEl.getAttribute('data-tutorial-id') !== item.id || !item.steps.length) {
+      return;
+    }
+
+    const activeIndex = getTutorialStepIndex(item);
+    const activeStep = item.steps[activeIndex] || item.steps[0];
+    const trackEl = viewerEl.querySelector('[data-step-track]');
+    const badgeEl = viewerEl.querySelector('[data-step-badge]');
+    const titleEl = viewerEl.querySelector('[data-step-title]');
+    const textEl = viewerEl.querySelector('[data-step-text]');
+    const prevButton = viewerEl.querySelector('[data-step-action="prev"]');
+    const nextButton = viewerEl.querySelector('[data-step-action="next"]');
+
+    if (trackEl) {
+      trackEl.style.transform = `translateX(-${activeIndex * 100}%)`;
+    }
+
+    viewerEl.querySelectorAll('[data-step-slide]').forEach((slideEl, slideIndex) => {
+      slideEl.setAttribute('aria-hidden', String(slideIndex !== activeIndex));
+    });
+
+    if (badgeEl) {
+      badgeEl.textContent = stepPositionLabel(activeIndex + 1, item.steps.length);
+    }
+
+    if (titleEl) {
+      titleEl.textContent = activeStep.title || `Étape ${activeIndex + 1}`;
+    }
+
+    if (textEl) {
+      textEl.textContent = stepText(activeStep) || 'Suivez cette étape directement à l’écran.';
+    }
+
+    if (prevButton) {
+      prevButton.disabled = activeIndex <= 0;
+    }
+
+    if (nextButton) {
+      nextButton.disabled = activeIndex >= item.steps.length - 1;
+    }
+  }
+
+  function setTutorialStepIndex(tutorialId, nextIndex) {
+    const item = getTutorialById(tutorialId);
+    if (!item || !item.steps.length) return;
+
+    tutorialStepPositions[tutorialId] = Math.min(Math.max(nextIndex, 0), item.steps.length - 1);
+    updateStepViewer(item);
+  }
+
+  function mergeTutorials(existingItems, incomingItems) {
+    const mergedItems = existingItems.slice();
+    const indexByKey = new Map();
+
+    mergedItems.forEach((item, index) => {
+      tutorialKeys(item).forEach((key) => {
+        indexByKey.set(key, index);
+      });
+    });
+
+    incomingItems.forEach((item) => {
+      const matchIndex = tutorialKeys(item)
+        .map((key) => indexByKey.get(key))
+        .find((index) => Number.isInteger(index));
+
+      if (Number.isInteger(matchIndex)) {
+        mergedItems[matchIndex] = item;
+        tutorialKeys(item).forEach((key) => {
+          indexByKey.set(key, matchIndex);
+        });
+        return;
+      }
+
+      mergedItems.push(item);
+      const nextIndex = mergedItems.length - 1;
+      tutorialKeys(item).forEach((key) => {
+        indexByKey.set(key, nextIndex);
+      });
+    });
+
+    return mergedItems;
+  }
+
+  function normalizeTutorial(item, idx) {
+    const source = asObject(item);
+    const rawSteps = Array.isArray(source.steps)
+      ? source.steps
+      : (Array.isArray(source.procedure) ? source.procedure : []);
+    const steps = rawSteps.map(normalizeStep);
+
+    return {
+      id: source.id || `tutorial-${idx + 1}`,
+      index: source.index || String(idx + 1).padStart(2, '0'),
+      tag: source.tag || source.category || source.type || '',
+      title: source.title || source.name || '',
+      shortText: source.shortText || source.short_text || source.description || '',
+      description: source.description || source.shortText || source.short_text || '',
+      youtubeId: source.youtubeId || source.youtube_id || '',
+      youtubeUrl: source.youtubeUrl || source.youtube_url || '',
+      videoFilename: source.videoFilename || source.video || '',
+      videoUrl: source.videoUrl || source.video_url || '',
+      videoLabel: source.videoLabel || source.video_label || '',
+      actionLabel: source.actionLabel || source.action_label || '',
+      helpTitle: source.helpTitle || source.help_title || 'Besoin d\'aide ?',
+      helpText: source.helpText || source.help_text || 'Contactez-nous pour recevoir l\'accompagnement.',
+      steps,
+      stepCount: Number(source.stepCount || source.step_count || steps.length || 0),
+    };
+  }
+
+  function initializeTutorialState() {
+    tutorials = fallbackTutorials.map(normalizeTutorial);
+    activeTutorialId = tutorials.length ? tutorials[0].id : '';
+  }
+
   function renderDetails(item) {
+    const safeTitle = escapeHtml(item.title || item.shortText || '');
+    const hasHelp = Boolean((item.helpTitle || '').trim() || (item.helpText || '').trim());
+    const stepsContent = item.steps.length
+      ? (hasVisualSteps(item)
+        ? renderStepViewer(item)
+        : `
+          <ol class="tutorial-procedure">
+            ${item.steps.map(renderProcedureItem).join('')}
+          </ol>
+        `)
+      : '<p class="lead">Les étapes seront ajoutées prochainement.</p>';
+
     detailEl.innerHTML = `
       <div class="tutorial-detail__layout">
         <div class="tutorial-video-card">
-          <div style="margin-bottom: 12px;">${item.videoLabel}</div>
-          <div class="tutorial-video-frame">
-            ${renderVideo(item)}
-          </div>
+          ${renderVideo(item)}
         </div>
 
-        <div class="tutorial-video-card">
-          <h3 style="margin: 0 0 12px; font-size: 1.4rem;">${item.title}</h3>
-          <p style="margin: 0 0 20px; color: rgba(15, 23, 42, 0.76); line-height: 1.7; font-size: 1rem;">${item.description}</p>
-          
-          <div style="margin-top: 24px;">
-            <h4 style="margin: 0 0 16px; font-size: 1.1rem; font-weight: 700;">Procédure</h4>
-            <ol style="margin: 0; padding: 0 0 0 20px; list-style: decimal;">
-              ${item.steps.map((step, idx) => `
-                <li style="margin-bottom: 8px; line-height: 1.6;">
-                  ${step.title}
-                </li>
-              `).join('')}
-            </ol>
+        <div class="tutorial-copy-card">
+          <div class="tutorial-copy-card__head">
+            ${safeTitle ? `<h3>${safeTitle}</h3>` : ''}
+            <p class="tutorial-copy-card__description">${escapeHtml(item.description)}</p>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              ${item.actionLabel ? `<span class="tutorial-item__tag">${escapeHtml(item.actionLabel)}</span>` : ''}
+            </div>
           </div>
+
+          ${stepsContent}
         </div>
       </div>
+
+      ${hasHelp ? `
+        <div class="tutorial-help-card">
+          <div>
+            <strong>${escapeHtml(item.helpTitle || 'Besoin d\'aide ?')}</strong>
+            <p>${escapeHtml(item.helpText || 'Contactez-nous pour recevoir l\'accompagnement.')}</p>
+          </div>
+          <div class="tutorial-help-card__actions">
+            <a class="btn primary" href="contact.html">Nous contacter</a>
+            <a class="btn outline" href="demo.html">Voir la démo</a>
+          </div>
+        </div>
+      ` : ''}
     `;
+
+    if (hasVisualSteps(item)) {
+      updateStepViewer(item);
+    }
   }
 
   function setActive(id) {
     const target = tutorials.find(item => item.id === id) || tutorials[0];
+    if (!target) {
+      activeTutorialId = '';
+      detailEl.innerHTML = '<p class="lead">Aucun tutoriel disponible pour le moment.</p>';
+      return;
+    }
+
+    activeTutorialId = target.id;
+    if (!Number.isFinite(Number(tutorialStepPositions[target.id]))) {
+      tutorialStepPositions[target.id] = 0;
+    }
+
     document.querySelectorAll('.tutorial-item').forEach(btn => {
       btn.classList.toggle('is-active', btn.dataset.tutorialId === target.id);
       btn.setAttribute('aria-pressed', String(btn.dataset.tutorialId === target.id));
@@ -802,15 +1602,81 @@
     renderDetails(target);
   }
 
-  listEl.innerHTML = tutorials.map(item => `
-    <button
-      class="tutorial-item${item.id === tutorials[0].id ? ' is-active' : ''}"
-      type="button"
-      data-tutorial-id="${item.id}"
-      aria-pressed="${item.id === tutorials[0].id ? 'true' : 'false'}">
-      ${item.title}
-    </button>
-  `).join('');
+  function renderTutorialList() {
+    if (!tutorials.length) {
+      activeTutorialId = '';
+      listEl.innerHTML = '<p class="lead">Aucun tutoriel disponible pour le moment.</p>';
+      detailEl.innerHTML = '';
+      return;
+    }
+
+    // Filtrer les tutoriels selon la recherche
+    const filtered = tutorials.filter(item => {
+      const query = searchQuery.toLowerCase();
+      const title = (item.title || '').toLowerCase();
+      const shortText = (item.shortText || '').toLowerCase();
+      const tag = (item.tag || '').toLowerCase();
+      
+      return title.includes(query) || shortText.includes(query) || tag.includes(query);
+    });
+
+    if (!filtered.length) {
+      listEl.innerHTML = '<p class="lead" style="text-align: center; padding: 40px 20px; color: rgba(15, 23, 42, 0.6);">Aucun tutoriel ne correspond à votre recherche.</p>';
+      return;
+    }
+
+    const selectedId = tutorials.some(item => item.id === activeTutorialId)
+      ? activeTutorialId
+      : tutorials[0].id;
+
+    listEl.innerHTML = filtered.map(item => `
+      <button
+        class="tutorial-item${item.id === selectedId ? ' is-active' : ''}"
+        type="button"
+        data-tutorial-id="${escapeHtml(item.id)}"
+        aria-pressed="${item.id === selectedId ? 'true' : 'false'}">
+        <div class="tutorial-item__top">
+          ${item.tag ? `<span class="tutorial-item__tag">${escapeHtml(item.tag)}</span>` : '<span></span>'}
+          <span class="tutorial-item__index">${escapeHtml(item.index || '')}</span>
+        </div>
+        <h3 class="tutorial-item__title">${escapeHtml(item.title || item.shortText || '')}</h3>
+        ${item.shortText ? `<p class="tutorial-item__text">${escapeHtml(item.shortText)}</p>` : ''}
+      </button>
+    `).join('');
+
+    setActive(selectedId);
+  }
+
+  async function loadTutorials() {
+    try {
+      const endpoint = withLanguageParam(buildApiUrl(tutorialsConfig.endpoint || '/tutorials'));
+      if (!endpoint) return;
+
+      const response = await fetch(endpoint, { cache: 'no-store' });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const payload = await response.json();
+      const items = Array.isArray(payload) ? payload : (Array.isArray(payload.items) ? payload.items : []);
+
+      if (!items.length) return;
+
+      const currentActive = getTutorialById(activeTutorialId);
+      const activeKeys = currentActive ? tutorialKeys(currentActive) : [];
+      tutorials = mergeTutorials(tutorials, items.map(normalizeTutorial));
+
+      if (activeKeys.length) {
+        const matchedActive = tutorials.find((item) =>
+          tutorialKeys(item).some((key) => activeKeys.includes(key))
+        );
+        if (matchedActive) {
+          activeTutorialId = matchedActive.id;
+        }
+      }
+
+      renderTutorialList();
+    } catch (error) {
+      console.warn('Tutoriels indisponibles, utilisation du contenu local.', error);
+    }
+  }
 
   listEl.addEventListener('click', (event) => {
     const button = event.target.closest('.tutorial-item');
@@ -827,7 +1693,43 @@
     }
   });
 
-  setActive(tutorials[0].id);
+  detailEl.addEventListener('click', (event) => {
+    const stepButton = event.target.closest('[data-step-action]');
+    if (stepButton) {
+      const item = getTutorialById(activeTutorialId);
+      if (!item) return;
+
+      const delta = stepButton.getAttribute('data-step-action') === 'next' ? 1 : -1;
+      setTutorialStepIndex(item.id, getTutorialStepIndex(item) + delta);
+      return;
+    }
+
+    const button = event.target.closest('[data-video-source]');
+    if (!button) return;
+    const stack = button.closest('.tutorial-video-stack');
+    if (!stack) return;
+    const sourceId = button.getAttribute('data-video-source');
+    stack.querySelectorAll('[data-video-source]').forEach((node) => {
+      const active = node.getAttribute('data-video-source') === sourceId;
+      node.classList.toggle('is-active', active);
+      node.setAttribute('aria-pressed', String(active));
+    });
+    stack.querySelectorAll('[data-video-panel]').forEach((panel) => {
+      panel.classList.toggle('is-active', panel.getAttribute('data-video-panel') === sourceId);
+    });
+  });
+
+  // Event listener pour la recherche
+  if (searchInput) {
+    searchInput.addEventListener('input', (event) => {
+      searchQuery = event.target.value;
+      renderTutorialList();
+    });
+  }
+
+  initializeTutorialState();
+  renderTutorialList();
+  loadTutorials();
 </script>
 </body>
 </html>

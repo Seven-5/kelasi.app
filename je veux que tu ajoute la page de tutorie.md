@@ -19,4 +19,6 @@ Comment utiliser Kelasi sans guide
 - Saisir la question de comment faire une action et on obtien le guide automatiquemne
 
 en mode desktop la liste des tutoriel seront à gauche et quand on clique sur un tutoriel le contenu s'affiche à droite avec la vidéo et les détails. en mode mobile la liste des tutoriel seront en haut et le contenu en bas.
-le lien de la vidéo je vais le fournir, ça va provenir de 
+le lien de la vidéo je vais le fournir, ça va provenir de youtube
+
+le format des tutorile sont en portrait donc fais en sorte que la page soit exactement comme mon style et designe actule sans casser

@@ -11,6 +11,55 @@
   <link rel="icon" type="image/png" href="assets/media/og-image.png"/>
   <link rel="apple-touch-icon" href="assets/media/og-image.png"/>
   <link rel="stylesheet" href="assets/css/style.css"/>
+  <script src="assets/js/site-config.js"></script>
+  <style>
+    .billing-switch-wrap {
+      display: flex;
+      justify-content: center;
+      margin-top: 24px;
+    }
+
+    .billing-switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      max-width: 100%;
+      padding: 4px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: #fff;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .billing-switch__button {
+      min-width: 112px;
+      border: 0;
+      border-radius: 999px;
+      background: #fff;
+      color: var(--text);
+      padding: 10px 16px;
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .billing-switch__button.is-active {
+      background: var(--purple);
+      color: #fff;
+    }
+
+    @media (max-width: 420px) {
+      .billing-switch {
+        width: 100%;
+      }
+
+      .billing-switch__button {
+        min-width: 0;
+        flex: 1 1 0;
+      }
+    }
+  </style>
 </head>
 <body>
 <header class="header">
@@ -59,45 +108,55 @@
 <section class="section">
   <div class="container">
     <div class="kicker">Tarifs</div>
-    <h1>Un investissement rentable pour votre école</h1>
-    <p class="lead">Pas de frais cachés. Nos tarifs sont adaptés à la taille de votre établissement et à vos besoins réels.</p>
+    <h1>Tarifs de Kelasi</h1>
+    <p class="lead">Des offres adaptées aux réalités des écoles.</p>
 
-    <div class="grid three" style="margin-top:40px;">
-      <div class="card">
-        <h3>Essai Gratuit</h3>
-        <p class="meta">Découvrez l'application sans engagement.</p>
-        <ul class="ul">
-          <li>Accès complet 30 jours</li>
-          <li>Accompagnement initial</li>
-          <li>Mode offline inclus</li>
-        </ul>
-        <a class="btn outline full" href="contact.html#demo">Démarrer l'essai</a>
+    <div class="billing-switch-wrap">
+      <div class="billing-switch" role="group" aria-label="Choix de facturation">
+        <button class="billing-switch__button is-active" type="button" data-billing-cycle="monthly" aria-pressed="true">Par mois</button>
+        <button class="billing-switch__button" type="button" data-billing-cycle="yearly" aria-pressed="false">Par an</button>
       </div>
-      <div class="card" style="border: 2px solid #6D28D9;">
-        <div class="badge" style="background:#6D28D9; color:white; margin-bottom:12px;">Populaire</div>
-        <h3>Standard</h3>
-        <p class="meta">Pour une gestion fluide au quotidien.</p>
-        <ul class="ul">
-          <li>Gestion des élèves & professeurs</li>
-          <li>Perception en temps réel</li>
-          <li>Impression de reçus</li>
-          <li>Rapports personnalisés</li>
-        </ul>
-        <a class="btn primary full" href="contact.html#demo">Choisir Standard</a>
+    </div>
+
+    <div class="grid three" id="pricing-plans" style="margin-top:40px;"></div>
+  </div>
+</section>
+
+<section class="section soft">
+  <div class="container">
+    <div class="kicker">Pourquoi ce tarif ?</div>
+    <h2>Un modèle simple pour démarrer proprement.</h2>
+    <div class="grid three" style="margin-top:32px;">
+      <div class="card">
+        <h3>Mise en place guidée</h3>
+        <p class="meta">L'école est accompagnée pour configurer les bases et démarrer sans confusion.</p>
       </div>
       <div class="card">
-        <h3>Premium</h3>
-        <p class="meta">La puissance totale avec notifications.</p>
-        <ul class="ul">
-          <li>Tout du pack Standard</li>
-          <li>Notifications SMS parents</li>
-          <li>Ventilation des frais scolaires</li>
-          <li>Cotation et génération des bulletins</li>
-          <li>Support priorité haute</li>
-          <li>Sauvegarde cloud sécurisée</li>
-        </ul>
-        <a class="btn outline full" href="contact.html#demo">Prendre Premium</a>
+        <h3>Usage quotidien</h3>
+        <p class="meta">Les offres couvrent les besoins réels : perception, suivi, rapports et contrôle.</p>
       </div>
+      <div class="card">
+        <h3>Évolution possible</h3>
+        <p class="meta">Une école peut commencer simplement puis activer plus de modules selon son rythme.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container grid two" style="align-items:center;">
+    <div>
+      <div class="kicker">Accompagnement et configuration</div>
+      <h2>Seven 5 vous aide à préparer le déploiement.</h2>
+      <p class="lead">Nous vous accompagnons dans la configuration initiale, l'importation des élèves et la prise en main des équipes.</p>
+    </div>
+    <div class="card">
+      <ul class="ul">
+        <li>Configuration de l'école</li>
+        <li>Préparation des classes et options</li>
+        <li>Première prise en main</li>
+      </ul>
+      <a class="btn primary full" href="contact.html#demo" style="margin-top:18px;">Demander l’activation</a>
     </div>
   </div>
 </section>
@@ -127,7 +186,7 @@
   <div class="container grid two" style="align-items:center;">
     <div>
       <div class="kicker">Contact</div>
-      <h2>Besoin d'un devis personnalisé ?</h2>
+      <h2>Besoin d’une offre adaptée ?</h2>
       <p class="lead">Chaque école est unique. Contactez-nous pour une offre adaptée à votre budget.</p>
     </div>
     <div class="card">
@@ -208,6 +267,73 @@
 
   <script>document.getElementById("y").textContent=new Date().getFullYear();</script>
 </footer>
+<script>
+  (function () {
+    const container = document.getElementById('pricing-plans');
+    const config = window.KELASI_SITE_CONFIG || {};
+    const plans = config.pricing && Array.isArray(config.pricing.plans)
+      ? config.pricing.plans
+      : [];
+
+    function escapeHtml(value) {
+      return String(value || '')
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#039;');
+    }
+
+    if (!container) return;
+
+    let billingCycle = 'monthly';
+
+    function planPrice(plan) {
+      const prices = plan.prices || {};
+      return prices[billingCycle] || prices.monthly || prices.yearly || {
+        price: plan.price || 'Prix à confirmer',
+        period: plan.period || '',
+      };
+    }
+
+    function renderPlans() {
+      container.innerHTML = plans.map((plan) => {
+      const features = Array.isArray(plan.features) ? plan.features : [];
+      const highlightStyle = plan.highlighted ? ' style="border: 2px solid #6D28D9;"' : '';
+      const buttonClass = plan.highlighted ? 'btn primary full' : 'btn outline full';
+      const currentPrice = planPrice(plan);
+
+      return `
+        <div class="card"${highlightStyle}>
+          ${plan.label ? `<div class="badge" style="${plan.highlighted ? 'background:#6D28D9; color:white; ' : ''}margin-bottom:12px;">${escapeHtml(plan.label)}</div>` : ''}
+          <h3>${escapeHtml(plan.name)}</h3>
+          <div class="price">${escapeHtml(currentPrice.price || 'Prix à confirmer')}</div>
+          ${currentPrice.period ? `<p class="meta">${escapeHtml(currentPrice.period)}</p>` : ''}
+          <p class="meta">${escapeHtml(plan.description)}</p>
+          <ul class="ul">
+            ${features.map((feature) => `<li>${escapeHtml(feature)}</li>`).join('')}
+          </ul>
+          <a class="${buttonClass}" href="${escapeHtml(plan.actionUrl || 'contact.html#demo')}" style="margin-top:18px;">${escapeHtml(plan.actionLabel || 'Demander l’activation')}</a>
+        </div>
+      `;
+      }).join('');
+    }
+
+    document.querySelectorAll('[data-billing-cycle]').forEach((button) => {
+      button.addEventListener('click', () => {
+        billingCycle = button.getAttribute('data-billing-cycle') || 'monthly';
+        document.querySelectorAll('[data-billing-cycle]').forEach((item) => {
+          const active = item.getAttribute('data-billing-cycle') === billingCycle;
+          item.classList.toggle('is-active', active);
+          item.setAttribute('aria-pressed', String(active));
+        });
+        renderPlans();
+      });
+    });
+
+    renderPlans();
+  })();
+</script>
 <script src="assets/js/main.js" defer></script>
 </body>
 </html>
