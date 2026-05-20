@@ -4,11 +4,37 @@
   const burger = document.querySelector("[data-burger]");
   const menu = document.querySelector("[data-mobilemenu]");
   if (burger && menu){
+    // Helper function to close menu
+    function closeMenu(){
+      menu.style.display = "none";
+      menu.setAttribute("data-open", "false");
+      burger.setAttribute("aria-expanded", "false");
+    }
+
+    // Helper function to open menu
+    function openMenu(){
+      menu.style.display = "block";
+      menu.setAttribute("data-open", "true");
+      burger.setAttribute("aria-expanded", "true");
+    }
+
+    // Toggle menu on burger click
     burger.addEventListener("click", () => {
       const open = menu.getAttribute("data-open") === "true";
-      menu.style.display = open ? "none" : "block";
-      menu.setAttribute("data-open", open ? "false" : "true");
-      burger.setAttribute("aria-expanded", open ? "false" : "true");
+      open ? closeMenu() : openMenu();
+    });
+
+    // Close menu when clicking outside (on document)
+    document.addEventListener("click", (e) => {
+      const isOpen = menu.getAttribute("data-open") === "true";
+      if (isOpen && !menu.contains(e.target) && !burger.contains(e.target)) {
+        closeMenu();
+      }
+    });
+
+    // Close menu when clicking on a link inside the menu
+    menu.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", closeMenu);
     });
   }
 

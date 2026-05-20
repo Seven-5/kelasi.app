@@ -18,7 +18,9 @@
   --shadow-soft: 0 8px 20px rgba(2, 6, 23, 0.06);
   --max: 1160px;
 }
-
+.kicker{
+  display: none;
+}
 * {
   box-sizing: border-box;
 }
